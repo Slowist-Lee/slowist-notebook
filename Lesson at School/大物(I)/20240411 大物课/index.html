@@ -1,0 +1,885 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../%E4%BF%A1%E7%94%B5%E5%AF%BC/3-3230103034-%E6%9D%8E%E6%98%95/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>大学物理I - Slowist's Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.732c4fb1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#42" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Slowist&#39;s Notebook" class="md-header__button md-logo" aria-label="Slowist's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Slowist's Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              大学物理I
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Slowist&#39;s Notebook" class="md-nav__button md-logo" aria-label="Slowist's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Slowist's Notebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Coding/C/C%20Note%20%EF%BC%88%E5%89%8D%E5%85%AB%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Coding/Matlab/Notes%20of%20Matlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matlab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    校内课程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            校内课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    结课
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            结课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BF%A1%E7%94%B5%E5%AF%BC/1-3230103034-%E6%9D%8E%E6%98%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第一次课程报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BF%A1%E7%94%B5%E5%AF%BC/3-3230103034-%E6%9D%8E%E6%98%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第三次课程报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    正在学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            正在学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    大学物理I
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    大学物理I
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、狭义相对论基本原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、狭义相对论基本原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 爱因斯坦的思路：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 狭义相对论的基本原理：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.洛伦兹变换的推导
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、爱因斯坦速度变换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、狭义相对论基本原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、狭义相对论基本原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 爱因斯坦的思路：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 狭义相对论的基本原理：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.洛伦兹变换的推导
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、爱因斯坦速度变换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="42">4.2 狭义相对论基本原理、洛伦兹变换</h1>
+<h2 id="_1">一、狭义相对论基本原理</h2>
+<h3 id="1">1. 爱因斯坦的思路：</h3>
+<ul>
+<li>（1）以太实验的零结果：<ul>
+<li>物理现象在所有惯性系中都按相同的定律进行,对麦克斯韦方程也应成立.</li>
+<li>吸收了<strong>洛伦兹</strong> 的<strong>光速不变性</strong> </li>
+</ul>
+</li>
+<li>（2）光速不变性概念与速度合成矛盾的解决：<ul>
+<li>时间不是绝对的！</li>
+</ul>
+</li>
+</ul>
+<h3 id="2">2. 狭义相对论的基本原理：</h3>
+<blockquote>
+<p>都不是原创</p>
+</blockquote>
+<ul>
+<li>a.相对性原理：所有惯性系中都相同</li>
+<li>b.光速不变原理（<strong>真空中</strong>）</li>
+</ul>
+<h3 id="3">3.洛伦兹变换的推导</h3>
+<ul>
+<li>满足两个基本性质：<ul>
+<li>时空的均匀性</li>
+<li>低速下符合伽利略变换
+-&gt;新变换是<strong>线性的</strong>！</li>
+</ul>
+</li>
+</ul>
+<p>![[Pasted image 20240411103720.png]]</p>
+<p>低速下:$x'=x-ut$
+若要线性：$x'$ 正比于 $x-ut$ → $x'=k(x-ut)$
+反过来：$x=x'+ut$
+→ $x=k(x'+ut)$
+考虑光的运动，设在$t=t'=0$的时刻，
+(i)坐标原点O与O'重合
+(ii)位于坐标原点的光源发出光
+- 由<strong>光速不变原理</strong>，$x=ct,  x'=c't'=ct'$
+- 在两个不同的参考系中，$x=ct,x'=ct$
+- 再使用上面的假设：$x=k(x'+ut)=ct(1),x'=k(x-ut)=ct'(2)$
+（1）×（2）：
+$x·x' =k^2(x'+ut')(x-ut)=k^2（ct'+ut'）(ct-ut)=k^2(c+u)t'· (c-u)t=ct·ct'$
+$→k^2(1-\frac{u^2}{c^2})t·t'=t·t'$
+→[!!]<strong>洛伦兹因子</strong> $k=\frac{1}{\sqrt{1-u^2/c^2}}$
+<strong>新变换</strong>：
+$∴x'=k(x-ut)=\frac{x-ut}{\sqrt{(1-u^2/c^2)}}$
+$y'=y$
+$z'=z$ (没在这两个方向上做过变换)</p>
+<p>利用$t=\frac{x}{c}$做变换：
+$t=\frac{x'}{c'}=\frac{x'}{c}=\frac{1}{c}·x'=\frac{1}{c}·\frac{x-ut}{k}=\frac{1}{c}·\frac{x-ut}{\sqrt{1-u^2/c^2}}=\frac{\frac{x}{c}-\frac{u}{c}·\frac{x}{c}}{\sqrt{1-u^2/c^2}}=\frac{t-ux/c^2}{\sqrt{1-u^2/c^2}}$</p>
+<p><strong>逆变换</strong>：（公式上来看，把<strong>减号</strong>改成了<strong>加号</strong>，且[!!]$t→t'$）
+<img src="D:\李昕的文件夹\学习\大一上\大一春夏-笔记仓库\大一春夏-笔记仓库\Pasted image 20240416111147.png" alt="逆变换公式截图" width="150" height="200">
+【本质：】让K系相对K’系以$(u'=-u)$运动，得到了逆变换
+<mark>tips：</mark>
+- 物理规律一致性→t和t'可以交换，u变为-u
+- （2）u&lt;&lt;c,可以退化为伽利略变换
+- （3）若不是描述光子运动，则<strong>洛伦兹变换</strong>是<strong>坐标变换</strong>
+- （4）u≤c.（真空中c是物体运动速度极限）</p>
+<h3 id="_2">三、爱因斯坦速度变换</h3>
+<ul>
+<li>洛伦兹变换两边<strong>求微分</strong>：
+【原式子】：
+$x'=\frac{x-ut}{\sqrt{(1-u^2/c^2)}}$</li>
+</ul>
+<p>$t'=\frac{t-ux/c^2}{\sqrt{1-u^2/c^2}}$</p>
+<p>【求<strong>微分</strong>】：
+$→dx'=\frac{dx-udt}{\sqrt{(1-u^2/c^2)}}$
+$→dt'=\frac{dt-udx/c^2}{\sqrt{1-u^2/c^2}}$</p>
+<p>【代入】：（同时：$v_x=\frac{dx}{dt}$,上下同除$dt$）</p>
+<p>$v^{'}_x=\frac{dx'}{dt'}$, <strong>代入</strong>:
+$v^{'}_x=\frac{dx'}{dt'}=\frac{\frac{dx-udt}{\sqrt{(1-u^2/c^2)}}}{\frac{dt-udx/c^2}{\sqrt{1-u^2/c^2}}}=\frac{dx-udt}{{dt-udx/c^2}}=\frac{dx/dt-u}{{1-u\frac{dx}{dt}/c^2}}=\frac{v_x-u}{{1-uv_x/c^2}}$
+$v^{'}_y=\frac{dy'}{dt}=\frac{dy\sqrt{1-u^2/c^2}}{dt-udx/c^2}=\frac{(dy/dt)\sqrt{1-u^2/c^2}}{1-u(dx/dt)/c^2}=\frac{(v_y)\sqrt{1-u^2/c^2}}{1-uv_x/c^2}$
+$v^{'}_z=\frac{dz'}{dt}=\frac{dz\sqrt{1-u^2/c^2}}{dt-udx/c^2}=\frac{(dz/dt)\sqrt{1-u^2/c^2}}{1-u(dx/dt)/c^2}=\frac{(v_z)\sqrt{1-u^2/c^2}}{1-uv_x/c^2}$</p>
+<ul>
+<li>速度变换/逆变换
+tips：
+（1）不仅x方向有变换、<strong>y、z也有变换</strong>，且为一个有机整体</li>
+</ul>
+<p>![[Pasted image 20240416112705.png]]</p>
+<ul>
+<li>例1：已知光在静水中的速度为c/n,n为折射率，求从地面上观察，在流速为u的水中的光速。</li>
+<li>
+<p>解：</p>
+<ul>
+<li>参考系：K是地面，K‘是流水</li>
+<li>这里$v^{'}_x=\frac{c}{n}$（光相对流水的传播速度=静水速度），u是参考系相对移动的速度，这里就是流水的速度</li>
+<li>$v_x=\frac{v^{'}_x+u}{1+uv^{'}_x/c^2}=\frac{c/n+u}{1+u\frac{c}{n}/c^2}=\frac{c+nu}{n+u/c}$</li>
+<li>特别的：当n=1时，$v^{'}_x=\frac{c}{n}=c,v_x=\frac{c+u}{1+u/c}=c$
+【真空中的光速与参照系无关】</li>
+</ul>
+</li>
+<li>
+<p>例2：一飞船以0.6c的速率相对于地球飞行，一光信号从船尾传向船头，飞船上的宇航员测得飞船长100m.试求地球上的观察者测得光信号从船尾发出和到达船头两个事件的空间间隔。</p>
+</li>
+<li>解：<ul>
+<li>参考系：K是地球，K’是飞船</li>
+<li>这里$u=0.6c$ ,$t'_2-t'_1=\frac{x'_2-x'_1}{c}=\frac{100}{c}$</li>
+<li>飞船上：$\Delta x'=x'_2-x'_1=100m$   </li>
+<li>$x_2=\frac{x'_2+ut'_2}{\sqrt{(1-u^2/c^2)}}$ </li>
+<li>$x_1=\frac{x'_1+ut'_1}{\sqrt{(1-u^2/c^2)}}$ </li>
+<li>地球上：$\Delta x=x_2-x_1==\frac{x'_2+ut'_2}{\sqrt{(1-u^2/c^2)}}-=\frac{x'_1+ut'_1}{\sqrt{(1-u^2/c^2)}}=\frac{1}{\sqrt{(1-u^2/c^2)}}·[(x'_2-x'_1)+u(t'_2-t'_1)]$</li>
+<li>$将u和\Delta t' 代入，x_2-x_1=\frac{1}{\sqrt{(1-(0.6c)^2/c^2)}}·[100+0.6c(100/c)]=160/0.8=200m$</li>
+</ul>
+</li>
+</ul>
+<h1 id="43">4.3 狭义相对论的时空观</h1>
+<h2 id="_3">一、同时的相对性</h2>
+<p>![[Pasted image 20240411110916.png]]</p>
+<h3 id="1_1">1. “同时”与参照系的关系</h3>
+<p>![[Pasted image 20240416114809.png]]</p>
+<p><mark>tips</mark>：
+(1)当$x_2≠x_1$时，$t'_2≠t'_1。只有x_2=x_1,t'_2=t'_1$
+- K系中不同地点<b>“同时”</b>发生的两件事情，在K‘系中不同时。只有同时同地发生的事件，在其他惯性系观察才是同时的。
+    - “同时”与参照系有关，故<b>“同时”</b>是<strong>相对</strong>的
+(2)
+- u&gt;0,K'系从$x_1$到$x_2$,
+则$x_2-x_1&gt;0$, →$t^{'}_1- t^{'}_2&gt;0$ → $t^{'}_1&gt; t^{'}_2$  所以$x_2$ 位置先发生
+- u&gt;0,K'系从$x_2$到$x_1$,
+则$x_2-x_1&gt;0$, →$t^{'}_1- t^{'}_2&lt;0$ → $t^{'}_1&lt;t^{'}_2$  所以$x_1$ 位置先发生
+conclusions:越<strong>前面</strong>的越发生 (朝着速度方向的位置)</p>
+<h2 id="_4">二、长度的相对性</h2>
+<h3 id="1_2">1.运动系物理测量长度的定义：</h3>
+<ul>
+<li><strong>运动</strong>系物体<strong>测量长度</strong>的定义：同时记下<strong>物体两端的位置</strong><ul>
+<li>相对静止的参照系中的长度：固有长度/定长</li>
+</ul>
+</li>
+<li>静止长度：$l_0=x_2-x_1$</li>
+<li>运动中测量：
+$l'=x^{'}_2-x^{'}_1$
+![[Pasted image 20240416115411.png]]
+<mark>tips</mark>:</li>
+<li>在相对棒静止的惯性系中，棒长度最大，等于棒的静长$l_0$,在相对棒运动的惯性系中，棒沿运动方向的长度必小于静长→<strong>长度缩短</strong></li>
+<li><strong>适用条件</strong>：<ul>
+<li>测量<strong>运动</strong>物体的长度，<strong>同时</strong>记下位置</li>
+</ul>
+</li>
+<li>
+<p>与相对运动的垂直方向不发生长度收缩</p>
+</li>
+<li>
+<p>e.g. 列车雷击问题：还要考虑“同时”的相对性，两个雷不是一起下落的</p>
+</li>
+</ul>
+<h2 id="_5">三、时间的相对性</h2>
+<ul>
+<li>原时、两地时</li>
+<li>两地时($\frac{l}{c}$)&gt;原时($\frac{d}{c}$)
+![[Pasted image 20240416115727.png]]</li>
+<li>定量推导：
+$l=\sqrt{d^2+(\frac{u \Delta t}{2})^2}$
+$\Delta t= \frac{2l}{c}$
+由此解出$\Delta t=\frac{2d/c}{\sqrt{1-u^2/c^2}}$
+又∵ $\Delta t_0=\frac{2d}{c}$
+∴$\Delta t=\frac{\Delta t_0}{\sqrt{1-u^2/c^2}}$
+<mark>tips:</mark>
+![[Pasted image 20240416115809.png]]</li>
+<li>也可以用洛伦兹变换计算：</li>
+<li>$\Delta t'=t'_2-t'_1=\frac{t_2-ux/c^2-(t_1-ux/c^2)}{\sqrt{1-u^2/c^2}}=\frac{t_2-t_1}{\sqrt{1-u^2/c^2}}=\frac{\Delta t_0}{\sqrt{1-u^2/c^2}}$</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  </body>
+</html>
