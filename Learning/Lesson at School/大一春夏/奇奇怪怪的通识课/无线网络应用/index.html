@@ -308,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../Coding/C/C Note （前八章）.md" class="md-tabs__link">
+        <a href="../../../../../Coding/C/C%20Note%20%EF%BC%88%E5%89%8D%E5%85%AB%E7%AB%A0%EF%BC%89/" class="md-tabs__link">
           
   
     
@@ -712,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Coding/C/C Note （前八章）.md" class="md-nav__link">
+      <a href="../../../../../Coding/C/C%20Note%20%EF%BC%88%E5%89%8D%E5%85%AB%E7%AB%A0%EF%BC%89/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -787,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Coding/Matlab/Notes of Matlab.md" class="md-nav__link">
+      <a href="../../../../../Coding/Matlab/Notes%20of%20Matlab/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4577,6 +4577,54 @@
 <li>TCP/IP模型(更多说它的名称)<ul>
 <li>用户&lt;---应用层 HTTP、传输层 TCP、互联网层 IP、网络接入层</li>
 <li>以太网：最常用的有线局域网 Wifi：无线局域网</li>
+</ul>
+</li>
+</ul>
+<h1 id="ip">IP地址<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h1>
+<p>如何为一个网卡提供多个IP地址？</p>
+<ul>
+<li>IP地址：32位IP地址，由国际协议第四版（IPv4）定义<ul>
+<li>前三个八位字节：网络部分</li>
+<li>最后一位：主机位置</li>
+<li>→分层寻址</li>
+<li><strong>注意</strong>： MAC : 无层次 ；IP ：分层寻址</li>
+</ul>
+</li>
+<li>子网掩码：也是32位，点分十进制记法<ul>
+<li>表明哪一部分是网络，哪一部分是主机</li>
+<li>如何看呢？<ul>
+<li>都化为二进制之后比较：<ul>
+<li>子网掩码1的部分，网络部分；0，主机部分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最常见的<ul>
+<li>A类默认：255.0.0.0</li>
+<li>B类默认：255.255.0.0</li>
+<li>C类默认：255.255.255.0（最常见的）</li>
+</ul>
+</li>
+<li>前缀长数=子网掩码中1的位数 <ul>
+<li>e.g. 255.0.0.0 → /8</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>e.g. 子网掩码决定了主机的比特位数</p>
+</blockquote>
+<ul>
+<li>计算能够分配给主机的数量？</li>
+<li>方法：以255.255.255.0为例：<ul>
+<li>一共有8位，共<span class="arithmatex">\(2^8\)</span>=256 </li>
+<li>减去两个位置：<ul>
+<li>主机位全部为0：代表网络的标志位置，不分配给任何主机：</li>
+<li>主机位全部是1：广播，分配给所有主机</li>
+</ul>
+</li>
+<li>所以<span class="arithmatex">\(256-2=254个主机\)</span></li>
 </ul>
 </li>
 </ul>
