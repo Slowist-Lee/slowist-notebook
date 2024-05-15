@@ -4580,7 +4580,8 @@
 </ul>
 </li>
 </ul>
-<h1 id="ip">IP地址<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h1>
+<h1 id="ip">一、 IP地址<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h1>
+<h2 id="i-ip">I. IP地址简述<a class="headerlink" href="#i-ip" title="Permanent link">&para;</a></h2>
 <p>如何为一个网卡提供多个IP地址？</p>
 <ul>
 <li>IP地址：32位IP地址，由国际协议第四版（IPv4）定义<ul>
@@ -4616,8 +4617,8 @@
 <p>e.g. 子网掩码决定了主机的比特位数</p>
 </blockquote>
 <ul>
-<li>计算能够分配给主机的数量？</li>
-<li>方法：以255.255.255.0为例：<ul>
+<li>计算1：能够分配给主机的数量？<ul>
+<li>以255.255.255.0为例：<ul>
 <li>一共有8位，共<span class="arithmatex">\(2^8\)</span>=256 </li>
 <li>减去两个位置：<ul>
 <li>主机位全部为0：代表网络的标志位置，不分配给任何主机：</li>
@@ -4627,6 +4628,112 @@
 <li>所以<span class="arithmatex">\(256-2=254个主机\)</span></li>
 </ul>
 </li>
+</ul>
+</li>
+<li>计算2：计算网络地址（是否属于同一逻辑网络？）</li>
+<li>在实验中：若物理上连接网线/热点，但ping不通，或许是<strong>物理通但逻辑不通</strong>，需要<u>修改IP地址</u>，使其位于同一逻辑网络</li>
+</ul>
+<h2 id="ii-ip">II. IP地址的分类<a class="headerlink" href="#ii-ip" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A类：大型组织 <span class="arithmatex">\(2^{24}-2\)</span></li>
+<li>B类：中型网络 <span class="arithmatex">\(2^{16}-2\)</span></li>
+<li>C类：小型网络 <span class="arithmatex">\(2^8-2\)</span></li>
+</ul>
+<blockquote>
+<p>A、B、C商用； <del>D类：组播；E类实验室</del></p>
+</blockquote>
+<p>如何区别？看IP地址的网络部分！</p>
+<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-15/pdivsxvv.webp" /></p>
+<h1 id="_1">二、 公有和私有地址<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>延缓IPv4耗尽的方法是保留私有地址，仅供组织内部使用。这样，组织内部无需使用公有地址就能互相通信。</p>
+<p>区别：私有地址不能上Internet [在互联网上不会碰头], 公有可以上Internet</p>
+</blockquote>
+<ul>
+<li>RFC1918标准在A、B、C类都保留了数个地址范围作为私有地址，包含1个A类，16个B类和256个C类。</li>
+<li><img alt="" src="https://file.cc98.org/v2-upload/2024-05-15/yfxdvgkm.webp" /></li>
+<li>特殊地址：<ul>
+<li>环回地址：127.0.0.1，默认地址，主机用这个特殊地址将流量指向自身（如果能ping通，就可以正常上网） 又写作localhost<ul>
+<li>指令：ping -4 localhost (输入IPv4的地址，否则有可能IPv6)</li>
+</ul>
+</li>
+<li>本地链路地址：169.254.*  <font color=#FF0000>（异常的！通信一般也异常！）</font><ul>
+<li>Windows主机在没有动态分配IP地址的DHCP服务器给它自我分配IP地址的时候，使用169.254.*.* 进行自我配置</li>
+<li>也就是说，当自动获取IP地址失败的时候，自己给自己分配一个IP地址</li>
+<li>仅<strong>Windows</strong></li>
+<li>解决方法：改成<u>手动设置静态地址</u></li>
+</ul>
+</li>
+<li>TEST-NET 教学用地址</li>
+</ul>
+</li>
+<li>路由器：<ul>
+<li>WAN口：连接外网</li>
+<li>标有1234：内网口LAN</li>
+</ul>
+</li>
+<li>NAT协议：<ul>
+<li>由于Internet上不允许使用私有地址，因此，需要通过某种过程将私有地址转换为公有地址，本地客户端才能在Internet上通信。</li>
+<li>NAT协议：用于将私有地址转换为可路由的公有Internet地址的过程称为网络地址转换(NAT)。</li>
+<li>当数据包从内网传输到外网时，通过网络地址转换（NAT），可以将传出数据包的私有源IP地址转换为公有源IP地址。</li>
+<li>同样地，当数据包从外网传输到内网时，借助NAT，可以将传入数据包的公有目的IP地址转换为私有目的IP地址。</li>
+</ul>
+</li>
+<li>LAN口和WAN口的网络部分不能相同</li>
+<li>广播地址：<ul>
+<li>主机部分全1：广播目的IP地址<ul>
+<li>仅主机部分为1：定向广播地址</li>
+</ul>
+</li>
+<li>广播MAC地址：目的MAC地址：FF-FF-FF-FF-FF-FF </li>
+</ul>
+</li>
+<li>组播地址：<ul>
+<li>属于某一组播组的设备</li>
+<li>以01-00-5E开头，然后将组播IP地址低23位换算成剩下6个十六进制位值（将IP后8位十进制→十六进制）</li>
+</ul>
+</li>
+</ul>
+<h1 id="ipv6">IPv6<a class="headerlink" href="#ipv6" title="Permanent link">&para;</a></h1>
+<h2 id="i">I. 表示方法：<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
+<ul>
+<li>IPv6<sub>~最短</sub>~ 的表示方法：<ul>
+<li>格式 x<img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/274c.svg" title=":x:" />x<img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/274c.svg" title=":x:" />x:x </li>
+<li>x是一个写成十六进制形式的16位二进制数 x=ABCD</li>
+<li>字段中前导零可以省略</li>
+<li>连续的零可以简写成::，但是只能用一次:: <ul>
+<li>例如：0:0:0:0:0:1→表示为::1</li>
+</ul>
+</li>
+<li>注意：</li>
+<li><img alt="" src="https://file.cc98.org/v2-upload/2024-05-15/lqugocb5.webp" /></li>
+<li>前缀长度表示格式：IPv6地址/前缀长度<ul>
+<li>前缀长度的范围为0 到128，典型的前缀长度是/64。</li>
+<li>后面剩余部分统称为接口ID（相当于IPv4地址的主机部分）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ii">II. 地址类型：<a class="headerlink" href="#ii" title="Permanent link">&para;</a></h2>
+<ul>
+<li>单播/组播/任播</li>
+</ul>
+<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-15/fzvllm3s.webp" />
+<img alt="" src="https://file.cc98.org/v2-upload/2024-05-15/rjlthwjk.webp" /></p>
+<h3 id="21">2.1 单播地址<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h1 id="ipv4ipv6">四、IPv4和IPv6共存<a class="headerlink" href="#ipv4ipv6" title="Permanent link">&para;</a></h1>
+<ul>
+<li>堆栈</li>
+<li>隧道：通过IPv4传播IPv6数据包</li>
+<li>转换：IPv4和IPv6的转换</li>
+</ul>
+<h1 id="ip_1">五、获取IP地址的方式<a class="headerlink" href="#ip_1" title="Permanent link">&para;</a></h1>
+<h2 id="51">5.1 静态方式分配<a class="headerlink" href="#51" title="Permanent link">&para;</a></h2>
+<ul>
+<li>手工配置：IP,掩码，网关</li>
+<li>网络打印机、服务器</li>
+<li>方法：网络和Internet:更改网络适配器设置</li>
 </ul>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
