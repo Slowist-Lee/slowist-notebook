@@ -4473,12 +4473,53 @@
 <span class="arithmatex">\(p=\frac{1}{3}n\mu\overline{v^2}=\frac{2}{3}n\overline{\varepsilon_t}\)</span></p>
 <h1 id="_4">气体速率分布<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <h2 id="_5">速率分布函数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">基本公式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>以dN表示<span class="arithmatex">\(N_0\)</span>个分子分布在区间v~v+dv中的分子数，dN是速率v的函数
 <span class="arithmatex">\(dN=N_0f(v)dv\)</span>
-<span class="arithmatex">\(\frac{dN}{N_0}=f(v)dv\)</span>
+<span class="arithmatex">\(\frac{dN}{N_0}=f(v)dv\)</span> <strong>速率分布律</strong>
 <span class="arithmatex">\(f(v)=\frac{dN}{N_0dv}\)</span>
 当N足够大，<span class="arithmatex">\(f(v)=\frac{dN}{N_0dv}\)</span> 是一个确定函数
 物理意义：单位速率区间内，分子数在总分子数中占的比率</p>
+<ul>
+<li>应用：<ul>
+<li><span class="arithmatex">\(f(v)dv: 分子数占总数的比例  =\frac{dN}{N_0}\)</span></li>
+<li><span class="arithmatex">\(N_0f(v)dv:  v-&gt;v+dv的分子数 =dN\)</span></li>
+</ul>
+</li>
+<li>各种计算：<ul>
+<li>平均速率(统计平均值)：<span class="arithmatex">\(\overline{v}=\frac{\int vdN}{N_0}=(把dN代入)\overline{v}=\frac{\int v N_0f(v)dv}{N_0}=\int vf(v)dv\)</span></li>
+<li>方均根速率：</li>
+<li>速率介于v1~v2之间的电子数：<ul>
+<li>法1：<span class="arithmatex">\(\int_{v_1}^{v_2}N_0f(v)dv\)</span></li>
+<li>法2: 直接看f(v)的面积：<span class="arithmatex">\(\frac{\Delta N}{N_0}=S\)</span> (注意：面积不是分子数！只是一个比率！)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_7">麦克斯韦速率分布函数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>最概然速率：速率分布函数f(v)的极大值对应的速率<ul>
+<li><span class="arithmatex">\(v_p=\sqrt{\frac{2RT}{M}}=\sqrt{\frac{2kT}{\mu}}\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(\overline{v}=\sqrt{\frac{8kT}{\pi\mu}}=\sqrt{\frac{8RT}{\pi M}}\)</span></li>
+<li><span class="arithmatex">\(\sqrt{\overline{v^2}}=\sqrt{\frac{3kT}{\mu}}=\sqrt{\frac{3RT}{M}}\)</span> →间接验证了麦克斯韦速率分布函数正确√</li>
+</ul>
+<p>他们满足比例：</p>
+<p><mark>Tips</mark>: <strong>适用条件</strong>:麦克斯韦速率分布函数！ -&gt;理想气体处于温度为T的平衡态</p>
+<h2 id="t">温度T对速率分布曲线的影响<a class="headerlink" href="#t" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="arithmatex">\(v_p=\sqrt{\frac{2kT}{\mu}}\)</span> T越大，<span class="arithmatex">\(v_p\)</span>越大，f(v)越小<ul>
+<li>判断方法：温度越高，热运动越强烈</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(v_p=\sqrt{\frac{2kT}{\mu}}\)</span> <span class="arithmatex">\(\mu\)</span> 越大，<span class="arithmatex">\(v_p\)</span>越小，f(v)越大<ul>
+<li>判断方法：T一样→$\frac{3}{2}kT一样→动能一样→质量越大，速度自然变小</li>
+<li>分子质量<span class="arithmatex">\(\mu\)</span>越小，分子越容易运动</li>
+</ul>
+</li>
+</ul>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
