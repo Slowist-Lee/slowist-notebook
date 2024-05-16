@@ -3623,6 +3623,8 @@
       
         
       
+        
+      
     
     
       
@@ -3728,6 +3730,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../%E5%BE%85%E5%AD%A6%E6%8A%80%E6%9C%AF%E6%B8%85%E5%8D%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    待学技术清单
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3801,9 +3824,24 @@
 <blockquote>
 <p>k是玻尔兹曼常量，1.38<span class="arithmatex">\(\times10^{-23}J/K\)</span></p>
 </blockquote>
-<h1 id="_5">气体速率分布<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<h2 id="_6">速率分布函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<h3 id="_7">基本公式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>又由于<span class="arithmatex">\(\overline{\varepsilon_t}=\frac{1}{2}\mu\overline{v^2}\)</span></p>
+<p><span class="arithmatex">\(\overline{v^2}=\frac{3kT}{\mu}\)</span></p>
+<p>→ <span class="arithmatex">\(\sqrt{\overline{v^2}}=\sqrt{\frac{3kT}{\mu}}=\sqrt{\frac{3RT}{M}}\)</span></p>
+<p>Attention:这里的M和化学中不一样，使用的时候需要用到kg/mol</p>
+<h1 id="_5">能量均分原理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<h2 id="_6">自由度：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>单个原子：3</p>
+<p>双原子：5      <font color=#778899>3个平动+2个转动</font></p>
+<p>多原子分子（相当于刚体）：6      <font color=#778899>3个平动+3个转动(轴方位2个+绕轴转动1个)</font></p>
+<h2 id="_7">分子平均能量<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>设自由度为i</p>
+<p>平均能量<span class="arithmatex">\(\overline{\varepsilon}=\frac{i}{2}kT\)</span></p>
+<p>量为<span class="arithmatex">\(\upsilon\)</span>的理想气体中一共有<span class="arithmatex">\(\upsilon N_A\)</span>个分子，所以理想气体内能分子数<span class="arithmatex">\(\times\)</span>分子平均能量→<span class="arithmatex">\(E=\upsilon N_A \frac{i}{2}kT\)</span></p>
+<p><mark>tips:</mark>
+若要计算<strong>平均转动动能</strong>，用总的平均能量-平动动能即可（或者计算转动有几个<strong>自由度</strong>）</p>
+<h1 id="_8">气体速率分布<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<h2 id="_9">速率分布函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">基本公式<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>以dN表示<span class="arithmatex">\(N_0\)</span>个分子分布在区间v~v+dv中的分子数，dN是速率v的函数</p>
 <p><span class="arithmatex">\(dN=N_0f(v)dv\)</span></p>
 <p><span class="arithmatex">\(\frac{dN}{N_0}=f(v)dv\)</span> <strong>速率分布律</strong></p>
@@ -3821,13 +3859,18 @@
 <li>方均根速率：</li>
 <li>速率介于v1~v2之间的电子数：<ul>
 <li>法1：<span class="arithmatex">\(\int_{v_1}^{v_2}N_0f(v)dv\)</span></li>
-<li>法2: 直接看f(v)的面积：<span class="arithmatex">\(\frac{\Delta N}{N_0}=S\)</span> (注意：面积不是分子数！只是一个比率！)</li>
+<li>法2: 直接看f(v)的面积：<span class="arithmatex">\(\frac{\Delta N}{N_0}=S\)</span> (注意：面积不是分子数！只是一个比率！)
+<img alt="" src="https://file.cc98.org/v2-upload/2024-05-16/f00edlze.webp" /></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="_8">麦克斯韦速率分布函数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_11">麦克斯韦速率分布函数<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>表达式：<span class="arithmatex">\(f(v)=4\pi(\frac{\mu}{2\pi kT})^{\frac{3}{2}}e^{-\frac{\mu v^2}{2kT}}v^2\)</span></p>
+<p>温度为T的平衡态下，若已知速率分布函数f(v),则气体分子分布在<strong>任意速率区间</strong> v~v+dv内的分子数占总分子数的比率为（麦克斯韦速度分布律）：</p>
+<p><span class="arithmatex">\(\frac{dN}{N_0}=f(v)dv=4\pi(\frac{\mu}{2\pi kT})^{\frac{3}{2}}e^{-\frac{\mu v^2}{2kT}}v^2dv\)</span></p>
+<p>由此计算出来→</p>
 <ul>
 <li>最概然速率：速率分布函数f(v)的极大值对应的速率<ul>
 <li><span class="arithmatex">\(v_p=\sqrt{\frac{2RT}{M}}=\sqrt{\frac{2kT}{\mu}}\)</span></li>
@@ -3846,7 +3889,7 @@
 </li>
 <li><span class="arithmatex">\(v_p=\sqrt{\frac{2kT}{\mu}}\)</span> <span class="arithmatex">\(\mu\)</span> 越大，<span class="arithmatex">\(v_p\)</span>越小，f(v)越大<ul>
 <li>判断方法：T一样→<span class="arithmatex">\(\frac{3}{2}kT\)</span>一样→动能一样→质量越大，速度自然变小</li>
-<li>分子质量<span class="arithmatex">\(\mu\)</span>越小，分子越容易运动</li>
+<li><strong>分子质量<span class="arithmatex">\(\mu\)</span>越小，分子越容易运动</strong></li>
 </ul>
 </li>
 </ul>
