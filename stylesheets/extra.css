@@ -9,6 +9,12 @@
   outline: 1px solid #518FC1;
 }  */
 
+.word-count {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
 button.md-top {
   font-family: LXGW WenKai; /* 修改字体 */
   font-size: 16px; /* 修改字体大小 */
