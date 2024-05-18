@@ -1779,6 +1779,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -1931,6 +1935,48 @@
   
   <span class="md-ellipsis">
     第四讲课后习题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%E4%BA%94%E8%AE%B2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第五讲
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工作/支教备课录/2024 春夏 青海黄南/第五讲第二部分.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第五讲第二部分
   </span>
   
 
@@ -3938,8 +3984,49 @@
   <h1>第五讲第二部分 二项分布</h1>
 
 <p>概念1：<strong>伯努利试验</strong></p>
-<p>定义：</p>
-<p>举例：</p>
+<p>定义：只包含两个可能结果的实验</p>
+<div class="admonition tip">
+<p class="admonition-title">判断题：</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 抛掷一枚质地均匀的硬币</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 军训时候练习的第一次射击</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 一批产品里找一个产品，检测它是次品还是正常</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 一个罐子里装有3个红球和5个白球，随机摸一个球</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 一个罐子里装有3个红球、2个黑球和5个白球，随机摸一个球</li>
+</ul>
+</div>
+<p><strong>概念1推广</strong>：n重伯努利实验</p>
+<p>定义: 我们将一个伯努利实验独立重复进行n次所组成的随机试验称为<strong>n重伯努利实验</strong>。</p>
+<p>表示方式：X~B（n,p）</p>
+<div class="admonition example">
+<p class="admonition-title">在上面的基础上举例</p>
+<ul>
+<li>抛掷一枚质地均匀的硬币10次 <strong>X~B（10，0.5）</strong></li>
+<li>军训时候练习<strong>十次</strong>射击（已知命中率60%） <strong>X~B（10，0.6）</strong></li>
+<li>一批产品里找一个产品，检测它是次品还是正常（次品率0.4）  <strong>X~B（10，0.6）</strong></li>
+<li>一个罐子里装有3个红球和5个白球，放回的情况下随机摸3次球 <strong>X~B(3,0.6)</strong></li>
+</ul>
+</div>
+<p>概率计算方式：</p>
+<div class="admonition example">
+<p class="admonition-title">例题</p>
+<p>某飞碟运动员每次射击中靶的概率为0.8，连续三次射击，中靶次数的概率分布列是怎么样的？</p>
+</div>
+<p><strong>一般的解法和解法</strong>：</p>
+<ol>
+<li>分析事件，画树状图：</li>
+</ol>
+<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-18/pibe0kxl.webp" /></p>
+<ol>
+<li>利用条件概率进行计算
+以X=2为例，我们描<strong>树状图的路径</strong>：
+<img alt="" src="https://file.cc98.org/v2-upload/2024-05-18/t3hn5ngo.webp" />
+P(X=2)=【第一条路】0.8 <span class="arithmatex">\(\times\)</span> 0.8 <span class="arithmatex">\(\times\)</span> 0.2+ 0.8 <span class="arithmatex">\(\times\)</span> 0.2 <span class="arithmatex">\(\times\)</span> 0.8 +0.2 <span class="arithmatex">\(\times\)</span> 0.8 <span class="arithmatex">\(\times\)</span> 0.8 = 3 <span class="arithmatex">\(\times 0.8^2\)</span> <span class="arithmatex">\(\times\)</span> 0.2</li>
+</ol>
+<p>计算结果：
+<img alt="" src="https://file.cc98.org/v2-upload/2024-05-18/bli5j1rm.webp" /></p>
+<p><strong>归纳：</strong>
+ P(X=k) = <span class="arithmatex">\(C^k_3 \times 0.8^k \times 0.2^{3-k}\)</span>, <mark>k=0,1,2,3</mark></p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
