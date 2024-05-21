@@ -14,7 +14,7 @@
         <link rel="prev" href="../Chapter4%20Part%20I/">
       
       
-        <link rel="next" href="../../%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E9%80%9A%E8%AF%86%E8%AF%BE/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/">
+        <link rel="next" href="../%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">
       
       
       <link rel="icon" href="../../../../../assets/favicon.png">
@@ -1214,6 +1214,8 @@
       
         
       
+        
+      
     
     
       
@@ -1294,6 +1296,27 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    热力学基础
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1804,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E9%80%9A%E8%AF%86%E8%AF%BE/%E8%81%8C%E8%A7%84/Questions%20%E6%B1%AA%E5%B0%8F%E7%9F%A5%E8%80%81%E5%B8%88/" class="md-nav__link">
+      <a href="../../%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E9%80%9A%E8%AF%86%E8%AF%BE/%E8%81%8C%E8%A7%84/%E9%87%87%E8%AE%BF%E6%B5%81%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4279,6 +4302,64 @@
 </ul>
 </li>
 </ul>
+<details class="info">
+<summary>例二</summary>
+<p>计算7℃，400m/s-440m/s空气分子的百分数，空气平均摩尔质量29 <span class="arithmatex">\(\times 10^{-3}\)</span> </p>
+</details>
+<p>kg/mol
+    - 单纯积分：数值积分，没法手算
+    - 估算：✓
+    - 可能性验证：∵<span class="arithmatex">\(v_p=\sqrt{\frac{2RT}{M}}=\sqrt{\frac{2 \times 8.31 \times 280}{29 \times 10^{-3}}}≈400.6K\)</span>
+    - </p>
+<p>tips: 若deltav &lt;&lt; v，都可用此方法运算而不采用积分形式</p>
+<h1 id="_12">等温气压公式，波尔兹曼分布律<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 等温气压公式：<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>公式：<span class="arithmatex">\(p=p_0e^{-\frac{Mgh}{RT}}\)</span></li>
+<li>推导：
+ <span class="arithmatex">\([pS-(p+dp)S]-\rho  gSdh=0\)</span> → <span class="arithmatex">\(-dpS=\rho gdh\)</span>
+ 在那段小液柱中使用理想气体状态方程：
+ <span class="arithmatex">\(pdV=\frac{dm}{M}RT，\rho=\frac{dM}{dV}→p=\frac{\rho}{M}RT →\rho =\frac{pM}{RT}\)</span>
+ 代入</li>
+</ul>
+<h2 id="2">2. 玻尔兹曼分布<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>将麦克斯韦速度分布律：<span class="arithmatex">\(dN=N_0f(v)dv=N_04\pi(\frac{\mu}{2\pi kT})^{\frac{3}{2}}e^{-\frac{\mu v^2}{2kT}}v^2dv\)</span>
+推广为分子数：<span class="arithmatex">\(4\pi v^2dv=\)</span></p>
+<h1 id="_13">气体分子的平均自由程<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h1>
+<h2 id="1_1">1. 分子碰撞频率<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>定义：分子碰撞速率：单位时间内一个分子与其他分子碰撞次数的统计平均值 <span class="arithmatex">\(\overline Z\)</span></li>
+</ul>
+<h3 id="2_1">（2）其他分子也运动<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\(\overline{v_p}\)</span>为分子A相对其他分子运动的平均速率</li>
+<li><span class="arithmatex">\(v_r^2=v_1^2+v_2^2-2v_1v_2cos\theta\)</span></li>
+<li><span class="arithmatex">\(\overline {cos \theta}=0\)</span>,<span class="arithmatex">\(\overline{v_1^2}=\overline{v_2^2}=\overline{v^2}\)</span></li>
+</ul>
+<h2 id="2_2">2. 平均自由程<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>自由程：一个分子在两次连续碰撞之间所走过的直线路程→分子的自由程</li>
+<li><span class="arithmatex">\(\overline{\lambda}=\frac{\overline{v}}{\overline Z}\)</span></li>
+</ul>
+<h1 id="_14">实际气体<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h1>
+<h2 id="_15">一、范德瓦尔斯方程<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>压缩因子<span class="arithmatex">\(\zeta=\frac{pV}{\nu RT}=1\)</span> ,理想气体 <span class="arithmatex">\(\zeta=1\)</span>,实际气体<span class="arithmatex">\(\zeta≠1\)</span>，偏差大</p>
+<ul>
+<li>
+<p>理想气体忽略了：</p>
+<ul>
+<li>分子体积</li>
+<li>分子相互作用</li>
+</ul>
+</li>
+<li>
+<p>体积的修正：
+理想气体状态方程<span class="arithmatex">\(pV=\nu RT\)</span>, p→
+实际气体可被压缩的空间为V-vb，b是1mol分子的体积，称范德瓦尔斯体积修正值</p>
+</li>
+<li>压强的修正：
+(p+a)</li>
+</ul>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
@@ -4511,16 +4592,16 @@
         
           
           <a
-            href="../../%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E9%80%9A%E8%AF%86%E8%AF%BE/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/"
+            href="../%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: 无线网络应用"
+            aria-label="下一页: 热力学基础"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                无线网络应用
+                热力学基础
               </div>
             </div>
             <div class="md-footer__button md-icon">
