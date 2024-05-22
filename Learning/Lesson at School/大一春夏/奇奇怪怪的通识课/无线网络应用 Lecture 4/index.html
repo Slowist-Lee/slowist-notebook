@@ -95,6 +95,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#cisco-ios" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1422,6 +1427,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    无线网络应用 Lecture 4
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1432,6 +1450,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、操作系统
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4223,6 +4269,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、操作系统
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -4253,9 +4318,148 @@
   
 
 
-  <h1>无线网络应用 Lecture 4</h1>
-
-
+<ul>
+<li>模块1-3 4-7 8-10 在线考试✓</li>
+<li>
+<p>PT选做实验：6.14 23:59前截止</p>
+</li>
+<li>
+<p>以学在浙大里的实验压缩包为准</p>
+</li>
+<li>
+<p>由于选的是最后一个实验，可以做模块前面的PT小实验</p>
+</li>
+<li>
+<p>选做考试：</p>
+</li>
+<li>PTSA：2.5h 6:14 23:59截止
+![[Pasted image 20240522163726.png]]</li>
+</ul>
+<h1 id="cisco-ios">Cisco IOS<a class="headerlink" href="#cisco-ios" title="Permanent link">&para;</a></h1>
+<h2 id="_1">一、操作系统<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>内核+外壳</li>
+<li>
+<p>GUI/CLI界面</p>
+</li>
+<li>
+<p>如何访问？：</p>
+</li>
+<li>带外：控制台（Console）RJ-45反转线/USB电缆（B型），使用专用管理通道</li>
+<li>带内：<ul>
+<li>SSH：Secure Shell 安全外壳，需要IP地址</li>
+<li>Telnet：不安全，需要IP</li>
+<li>访问路由器：<ul>
+<li>电脑：反转线，用PC桌面Desktop上的终端程序Terminal访问路由器</li>
+<li>（相似设备）：交叉线</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>终端访问程序：</li>
+<li>PuTTY,支持带内带外访问；Xshell</li>
+</ul>
+<h1 id="cisco-ios_1">二、Cisco IOS 操作模式<a class="headerlink" href="#cisco-ios_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<p>用户EXEC模式-execute</p>
+<ul>
+<li>特征：&gt;</li>
+<li>只允许有限的基本监控命令</li>
+</ul>
+</li>
+<li>
+<p>特权EXEC模式</p>
+<ul>
+<li>特征：“#”结尾</li>
+</ul>
+</li>
+<li>
+<p>全局配置模式 Switch <strong>(config)#</strong> </p>
+<blockquote>
+<p>会修改它的状况</p>
+</blockquote>
+</li>
+<li>
+<p>分为：</p>
+<ul>
+<li>线路子配置模式 控制台、SSH、Telnet ---&gt;Router <strong>(config-line)#</strong></li>
+<li>接口子配置模式 Router <strong>(config-if)#</strong> if→interface</li>
+<li>其他子配置模式（不要求）</li>
+</ul>
+</li>
+</ul>
+<p>enable命令：用户→特权模式
+disable命令 （不常用） ：特权→用户
+exit：也可以推出</p>
+<p><strong>config terminal ：特权EXEC模式命令→全局配置模式</strong></p>
+<p>VTY：虚拟远程终端
+SSH 与 Telnet 访问均纳入VTY线路管理</p>
+<ul>
+<li>用line 全局配置模式命令后跟要访问的管理线路类型 Router(config)# 或 Switch(config)# 和编号(如 vty 0 15 进入线路子配置模式。Router(config-line)# 或 Switch(config-line)# </li>
+<li>用interface 全局配置模式命令后跟要访问的接口类型 或 console 0 和编号(如 fa0/1 或 g0/0 或vlan 1进入接口子配置模式。Router(config-if)# 或 Switch(config-if)#
+fa 0/1 fastethernet 0/1
+gigabethernet 0/0 g0/0
+vlan 1:虚拟网络1，每个交换机都会有
+end命令或者ctrl z返回到特权EXEC模式
+for e.g.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>line vty 0 15
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>line console 0
+</code></pre></div></td></tr></table></div>
+<p>IOS帮助：
+直接输入？ 当下模式下支持什么命令+简介
+记不完整了：cl？ cl开头，参数记不完整：继续打？
+命令语法检查：会反馈，报错</p>
+<p>快捷键：
+向下箭头：回车，重新执行
+方向是：向下：新；向上，旧</p>
+<p>ENTER显示下一行
+空格键显示下一屏
+Tab自动补全命令</p>
+<p>命令和关键词课缩写为能唯一确定该命令或关键词的最短字符数
+configure→conf（不能缩写为con，以con开头的命令不止一个，否则ambiguous command）
+熟练使用缩写可以节省大量工作量</p>
+<p>路由器名称：
+记住：<strong>全局配置模式！</strong>
+![[Pasted image 20240522171505.png]]</p>
+<p>![[Pasted image 20240522171715.png]]</p>
+<p>![[Pasted image 20240522171758.png]]</p>
+<p>password → pass
+configurate terminal → conf t 
+en enable
+![[Pasted image 20240522172148.png]]
+最后用login来启用</p>
+<p>![[Pasted image 20240522172255.png]]
+![[Pasted image 20240522172506.png]]
+![[Pasted image 20240522172707.png]]
+- 用 copy running-config startup-config <strong>特权EXEC模式命令</strong> 可将当前最新的运行模式保存到启动配置文件中（保存到启动配置文件中去） copy run start 
+- 修改运行配置：
+    - 逐个删除命令，手动“no”
+    - copy startup-config runnin-config 将启动配置文件复制到运行配置，立即生效，简写为 copy start run
+    - 特权EXEC模式：reload 重启设备
+- 如果将不理想的更改到了启动配置文件中，要清除启动配置
+    - erase startup-config 
+    - 再用reload
+- 加密密码：
+    - ![[Pasted image 20240522173500.png]]
+    - 交换机：
+        - 物理端口：没有IP地址
+        - 虚拟接口: 有IP地址
+![[Pasted image 20240522173748.png]]
+虚拟接口配置
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>Switch#conf t
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>Router
+</code></pre></div></td></tr></table></div>
+![[Pasted image 20240522173826.png]]![[Pasted image 20240522174010.png]]
+![[Pasted image 20240522174131.png]]
+ <code>show ipv6 interface brief</code>
+详细信息：
+show interfaces→ sh int / sh ip int</p>
+<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-22/witryqu2.webp" /></p>
+<p>IOS ping和tracert 用户模式和EXEC特权模式都可以用</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
