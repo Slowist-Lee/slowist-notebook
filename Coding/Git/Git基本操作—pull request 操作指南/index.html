@@ -14,7 +14,7 @@
         <link rel="prev" href="../../Matlab/Notes%20of%20Matlab/">
       
       
-        <link rel="next" href="../../CTF/Lab%200/">
+        <link rel="next" href="../../../Learning/Lesson%20at%20School/%E5%A4%A7%E4%B8%80%E6%98%A5%E5%A4%8F/%E4%BF%A1%E7%94%B5%E5%AF%BC/1-3230103034-%E6%9D%8E%E6%98%95/">
       
       
       <link rel="icon" href="../../../assets/favicon.png">
@@ -1014,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/Lab%200/" class="md-nav__link">
+      <a href="../../CTF/Lab 0.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4661,10 +4661,48 @@
 <p><img alt="" src="https://file.cc98.org/v2-upload/2024-06-01/hzbjx35s.webp" /></p>
 <h2 id="12-gitpull-request">1.2 本地Git操作，并且pull request<a class="headerlink" href="#12-gitpull-request" title="Permanent link">&para;</a></h2>
 <ol>
-<li>使用git clone命令
+<li>
+<p>使用git clone命令
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;your<span class="w"> </span>ssh&gt;
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>拉取所有分支</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>从远程仓库拉取所有代码，所有远程分支在本地是只读的</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-a
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>可以通过确认github来得知自己想修改的文件在什么分支。下面切换到想要的分支：
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;your<span class="w"> </span>branch&gt;
 </code></pre></div></td></tr></table></div></li>
 </ol>
+<p>返回：</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>branch &#39;gh-pages&#39; set up to track &#39;origin/gh-pages&#39;.
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>Switched to a new branch &#39;gh-pages&#39;
+</code></pre></div></td></tr></table></div>
+即切换到相应分支，再执行<code>git branch</code> 之后，会发现当前分支之前有<code>*</code></p>
+<ol>
+<li>编辑相应文件，可以用<code>code</code>打开，从而用VSCode来编辑</li>
+<li>最后提交文件到远程仓库</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>git<span class="w"> </span>add<span class="w"> </span>main_zju/index.html
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update index.html&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>gh-pages
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>最后可以在想要提交修改的仓库点击Pull requests-&gt; new pull request</li>
+</ol>
+<p><img alt="" src="https://file.cc98.org/v2-upload/2024-06-05/eedwbspk.webp" /></p>
+<p>后面跟着提示一步步compare changes，提交修改说明，最后修改审核就可以啦！</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
@@ -4897,16 +4935,16 @@
         
           
           <a
-            href="../../CTF/Lab%200/"
+            href="../../../Learning/Lesson%20at%20School/%E5%A4%A7%E4%B8%80%E6%98%A5%E5%A4%8F/%E4%BF%A1%E7%94%B5%E5%AF%BC/1-3230103034-%E6%9D%8E%E6%98%95/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: CTF"
+            aria-label="下一页: 第一次课程报告"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                CTF
+                第一次课程报告
               </div>
             </div>
             <div class="md-footer__button md-icon">
