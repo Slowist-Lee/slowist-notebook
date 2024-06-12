@@ -5127,6 +5127,53 @@ AP型号：TL-CPE210
 <h2 id="_4">路由器背板图<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-24/5tnm343a.webp" />
 <img alt="" src="https://file.cc98.org/v2-upload/2024-05-24/wn4mn4wg.webp" /></p>
+<h1 id="lecture-7">Lecture 7<a class="headerlink" href="#lecture-7" title="Permanent link">&para;</a></h1>
+<ul>
+<li>结构化故障排查技术：（建议初学者使用）<ul>
+<li>自上而下：当故障简单/故障由特定软件所致，适合采用该方法</li>
+<li>自下而上</li>
+<li>分治法</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>OSI常见故障一览:</p>
+</blockquote>
+<p>7&amp;6&amp;5 DNS解析问题 
+4 重传问题、端口问题、TCP窗口问题
+3 网络层 IP寻址问题、IP地址冲突问题、路由问题和协议错误
+2 数据链路层
+1 物理层</p>
+<ul>
+<li>故障排除的方法：<ul>
+<li>试错法：根据经验进行推断</li>
+<li>替换法：</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="https://file.cc98.org/v2-upload/2024-06-12/ap3gb2bh.webp" />
+- ipconfig:IP地址、子网掩码、默认网关
+- ipconfig /all 包括MAC地址、默认网关、DNS服务器的IP地址
+<img alt="" src="https://file.cc98.org/v2-upload/2024-06-12/oqz30liq.webp" /></p>
+<p>ipconfig /release：释放当前的DHCP绑定的IP地址等信息
+ipconfig /renew：请求从DHCP服务器重新获取或续租IP地址等配置信息</p>
+<p>nbtstat ：查看在TCP/IP协议之上运行NetBIOS服务的统计数据，并可以查看本地远程计算机上的NetBIOS名称列表
+方便之处：通过IP地址，可以找到MAC地址/计算机名称</p>
+<blockquote>
+<p>先ping，再用arp -a看，也可以查找到本网段内其他主机IP地址所对应的MAC地址</p>
+</blockquote>
+<h1 id="_5">常见问题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 连通性问题<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://file.cc98.org/v2-upload/2024-06-12/j2dzk2rg.webp" /></p>
+<p>并不是所有无线标准都是兼容的。</p>
+<ul>
+<li>a,b wifi 1和2 </li>
+<li>ax wifi 6</li>
+<li>n wifi 4</li>
+<li>g/b 2.4GHz频段</li>
+<li>a 5G频段</li>
+<li>be/bn wifi &#8542;</li>
+</ul>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
