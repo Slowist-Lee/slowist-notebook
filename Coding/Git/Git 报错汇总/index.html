@@ -95,6 +95,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1git-fetchgit-merge" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -997,6 +1002,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Git报错汇总
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1006,6 +1022,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1git-fetchgit-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法1：使用git fetch和git merge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2git-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法2：使用git pull
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4738,6 +4798,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1git-fetchgit-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法1：使用git fetch和git merge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2git-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法2：使用git pull
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4897,6 +4992,155 @@
 </li>
 </ol>
 <p>通过上述步骤，你应该能够解决 <code>mkdocs gh-deploy</code> 过程中遇到的仓库访问问题。如果问题仍然存在，可以提供更多详细信息，以便进一步诊断。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span>
+<span class="normal"><a href="#__codelineno-9-22">22</a></span>
+<span class="normal"><a href="#__codelineno-9-23">23</a></span>
+<span class="normal"><a href="#__codelineno-9-24">24</a></span>
+<span class="normal"><a href="#__codelineno-9-25">25</a></span>
+<span class="normal"><a href="#__codelineno-9-26">26</a></span>
+<span class="normal"><a href="#__codelineno-9-27">27</a></span>
+<span class="normal"><a href="#__codelineno-9-28">28</a></span>
+<span class="normal"><a href="#__codelineno-9-29">29</a></span>
+<span class="normal"><a href="#__codelineno-9-30">30</a></span>
+<span class="normal"><a href="#__codelineno-9-31">31</a></span>
+<span class="normal"><a href="#__codelineno-9-32">32</a></span>
+<span class="normal"><a href="#__codelineno-9-33">33</a></span>
+<span class="normal"><a href="#__codelineno-9-34">34</a></span>
+<span class="normal"><a href="#__codelineno-9-35">35</a></span>
+<span class="normal"><a href="#__codelineno-9-36">36</a></span>
+<span class="normal"><a href="#__codelineno-9-37">37</a></span>
+<span class="normal"><a href="#__codelineno-9-38">38</a></span>
+<span class="normal"><a href="#__codelineno-9-39">39</a></span>
+<span class="normal"><a href="#__codelineno-9-40">40</a></span>
+<span class="normal"><a href="#__codelineno-9-41">41</a></span>
+<span class="normal"><a href="#__codelineno-9-42">42</a></span>
+<span class="normal"><a href="#__codelineno-9-43">43</a></span>
+<span class="normal"><a href="#__codelineno-9-44">44</a></span>
+<span class="normal"><a href="#__codelineno-9-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>PS D:\zjuers-slowist-version&gt; git remote remove origin
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>PS D:\zjuers-slowist-version&gt; git remote add origin git@github.com:Slowist-Lee/zjuers-slowist-version.git
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>PS D:\zjuers-slowist-version&gt; git push -u origin &quot;master&quot;
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>ssh: connect to host github.com port 22: Connection refused
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>fatal: Could not read from remote repository.
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>Please make sure you have the correct access rights
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>and the repository exists.
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>PS D:\zjuers-slowist-version&gt; git remote remove origin
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>PS D:\zjuers-slowist-version&gt; git remote add origin https://github.com/Slowist-Lee/zjuers-slowist-version.git
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>PS D:\zjuers-slowist-version&gt; git push -u origin &quot;master&quot;
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>To https://github.com/Slowist-Lee/zjuers-slowist-version.git
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a> ! [rejected]        master -&gt; master (fetch first)
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>error: failed to push some refs to &#39;https://github.com/Slowist-Lee/zjuers-slowist-version.git&#39;
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>hint: Updates were rejected because the remote contains work that you do not
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>hint: have locally. This is usually caused by another repository pushing to
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>hint: the same ref. If you want to integrate the remote changes, use
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>hint: &#39;git pull&#39; before pushing again.
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>PS D:\zjuers-slowist-version&gt; git pull origin master
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>remote: Enumerating objects: 5, done.
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>remote: Counting objects: 100% (5/5), done.
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>remote: Compressing objects: 100% (3/3), done.
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a>remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a>Unpacking objects: 100% (3/3), 979 bytes | 244.00 KiB/s, done.
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a>From https://github.com/Slowist-Lee/zjuers-slowist-version
+<a id="__codelineno-9-27" name="__codelineno-9-27"></a> * branch            master     -&gt; FETCH_HEAD
+<a id="__codelineno-9-28" name="__codelineno-9-28"></a> * [new branch]      master     -&gt; origin/master
+<a id="__codelineno-9-29" name="__codelineno-9-29"></a>Auto-merging index.html
+<a id="__codelineno-9-30" name="__codelineno-9-30"></a>Merge made by the &#39;ort&#39; strategy.
+<a id="__codelineno-9-31" name="__codelineno-9-31"></a> index.html | 2 +-
+<a id="__codelineno-9-32" name="__codelineno-9-32"></a> 1 file changed, 1 insertion(+), 1 deletion(-)
+<a id="__codelineno-9-33" name="__codelineno-9-33"></a>PS D:\zjuers-slowist-version&gt; git add .
+<a id="__codelineno-9-34" name="__codelineno-9-34"></a>PS D:\zjuers-slowist-version&gt; git push -u origin &quot;master&quot;
+<a id="__codelineno-9-35" name="__codelineno-9-35"></a>Enumerating objects: 13, done.
+<a id="__codelineno-9-36" name="__codelineno-9-36"></a>Counting objects: 100% (13/13), done.
+<a id="__codelineno-9-37" name="__codelineno-9-37"></a>Delta compression using up to 20 threads
+<a id="__codelineno-9-38" name="__codelineno-9-38"></a>Compressing objects: 100% (9/9), done.
+<a id="__codelineno-9-39" name="__codelineno-9-39"></a>Writing objects: 100% (9/9), 885 bytes | 885.00 KiB/s, done.
+<a id="__codelineno-9-40" name="__codelineno-9-40"></a>Total 9 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+<a id="__codelineno-9-41" name="__codelineno-9-41"></a>remote: Resolving deltas: 100% (6/6), completed with 2 local objects.
+<a id="__codelineno-9-42" name="__codelineno-9-42"></a>To https://github.com/Slowist-Lee/zjuers-slowist-version.git
+<a id="__codelineno-9-43" name="__codelineno-9-43"></a>   f2611b5..5c025a8  master -&gt; master
+<a id="__codelineno-9-44" name="__codelineno-9-44"></a>branch &#39;master&#39; set up to track &#39;origin/master&#39;.
+<a id="__codelineno-9-45" name="__codelineno-9-45"></a>PS D:\zjuers-slowist-version&gt;
+</code></pre></div></td></tr></table></div>
+<p>解决方法，
+要使用远程仓库更新你的本地仓库，你可以使用<code>git fetch</code>和<code>git merge</code>命令，或者更简便地，直接使用<code>git pull</code>命令。以下是两种常见方法的步骤：</p>
+<h3 id="1git-fetchgit-merge">方法1：使用<code>git fetch</code>和<code>git merge</code><a class="headerlink" href="#1git-fetchgit-merge" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>获取远程更新</strong>：首先，使用<code>git fetch</code>命令从远程仓库获取最新的数据，但不自动合并到本地分支。
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>git fetch origin
+</code></pre></div></td></tr></table></div>
+   这里<code>origin</code>是远程仓库的默认名称，如果你的远程仓库命名不同，请替换为相应的名称。</p>
+</li>
+<li>
+<p><strong>查看更新</strong>：你可以使用<code>git log</code>命令查看远程分支与本地分支之间的差异，确认有哪些更新。
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>git log master..origin/master
+</code></pre></div></td></tr></table></div>
+   假设你要更新的是<code>master</code>分支，如果是其他分支，请相应替换。</p>
+</li>
+<li>
+<p><strong>合并更新</strong>：确认无误后，使用<code>git merge</code>命令将远程分支的更新合并到本地分支。
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>git merge origin/master
+</code></pre></div></td></tr></table></div>
+   同样，如果操作的不是<code>master</code>分支，请替换为正确的分支名。</p>
+</li>
+</ol>
+<h3 id="2git-pull">方法2：使用<code>git pull</code><a class="headerlink" href="#2git-pull" title="Permanent link">&para;</a></h3>
+<p><code>git pull</code>命令是<code>git fetch</code>和<code>git merge</code>的组合，它会直接从远程仓库获取最新的代码并尝试自动合并到你的当前分支。
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>git pull origin master
+</code></pre></div></td></tr></table></div>
+   这条命令将会从名为<code>origin</code>的远程仓库的<code>master</code>分支获取最新代码，并自动与你的本地<code>master</code>分支合并。如果当前分支就是你要更新的分支，可以省略冒号后面的本地分支名：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>git pull origin
+</code></pre></div></td></tr></table></div>
+   如果你的本地分支已经设置了跟踪远程分支（通常是通过<code>git clone</code>时自动设置的），那么上述简化命令就足够了。</p>
+<h3 id="_1">注意事项<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在执行这些操作前，确保你的工作目录是干净的，没有未提交的改动，以避免合并冲突。</li>
+<li>如果你在团队协作中，建议先<code>fetch</code>查看更新，评估影响后再决定是否合并，尤其是在进行重要或大型更新时。</li>
+<li>如果你想完全用远程仓库的内容覆盖本地更改，可以使用<code>git fetch</code>之后，执行<code>git reset --hard origin/branch_name</code>，但这会丢失本地未提交的更改，请谨慎使用。</li>
+</ul>
+<p>要清除一个Git仓库的远程链接，你可以使用<code>git remote remove</code>命令（或者它的别名<code>git remote rm</code>）。这个命令会断开仓库与指定远程服务器的连接。下面是具体的操作步骤：</p>
+<ol>
+<li>
+<p><strong>打开命令行</strong>：首先，你需要在包含Git仓库的本地目录下打开命令行工具。</p>
+</li>
+<li>
+<p><strong>查看当前远程链接</strong>：在执行删除操作之前，可以通过下面的命令查看当前仓库配置的所有远程链接：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>git remote -v
+</code></pre></div></td></tr></table></div>
+   这个命令会列出所有远程仓库的名称（如<code>origin</code>）以及它们对应的URL。</p>
+</li>
+<li>
+<p><strong>删除远程链接</strong>：确定要删除的远程仓库名称后，使用下面的命令进行删除，将<code>[remote_name]</code>替换为实际的远程仓库名称（例如<code>origin</code>）：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>git remote remove [remote_name]
+</code></pre></div></td></tr></table></div>
+   或者使用它的别名：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>git remote rm [remote_name]
+</code></pre></div></td></tr></table></div>
+   执行这个命令后，该远程仓库的链接就会从你的本地仓库配置中移除。</p>
+</li>
+</ol>
+<p>请注意，这个操作只影响本地仓库的配置，并不会影响远程仓库本身及其存储的数据。如果你想要删除远程仓库服务上的仓库（比如Gitee或GitHub上的仓库），你需要登录到相应的平台，并在那里执行删除操作。</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
