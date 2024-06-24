@@ -14,7 +14,7 @@
         <link rel="prev" href="../Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94pull%20request%20%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">
       
       
-        <link rel="next" href="../../CTF/Lab%200%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+        <link rel="next" href="../Git%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/">
       
       
       <link rel="icon" href="../../../assets/favicon.png">
@@ -924,6 +924,8 @@
       
         
       
+        
+      
     
     
       
@@ -1060,6 +1062,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git系统学习
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5235,6 +5258,42 @@
 </li>
 </ol>
 <p>请注意，这个操作只影响本地仓库的配置，并不会影响远程仓库本身及其存储的数据。如果你想要删除远程仓库服务上的仓库（比如Gitee或GitHub上的仓库），你需要登录到相应的平台，并在那里执行删除操作。</p>
+<p>PS D:\college application&gt; git clone <a href="https://github.com/Slowist-Lee/college_application.git">https://github.com/Slowist-Lee/college_application.git</a> Cloning into 'college_application'... remote: Enumerating objects: 162, done. remote: Counting objects: 100% (162/162), done. remote: Compressing objects: 100% (122/122), done. remote: Total 162 (delta 29), reused 147 (delta 17), pack-reused 0 Receiving objects: 100% (162/162), 1.47 MiB | 953.00 KiB/s, done. Resolving deltas: 100% (29/29), done. PS D:\college application&gt; git fetch origin fatal: not a git repository (or any of the parent directories): .git</p>
+<p>看起来你在尝试克隆一个GitHub仓库到本地，并且已经成功克隆了名为<code>college_application</code>的仓库。但是，当你尝试执行<code>git fetch origin</code>命令时，遇到了错误，提示<code>fatal: not a git repository (or any of the parent directories): .git</code>。这通常意味着当前目录不是一个Git仓库，或者<code>.git</code>目录没有正确设置。</p>
+<p>以下是一些可能的解决步骤：</p>
+<ol>
+<li>
+<p><strong>确保当前目录正确</strong>：首先，确保你在正确的目录中。使用<code>cd</code>命令切换到你克隆的仓库目录，例如：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>cd D:\college application\college_application
+</code></pre></div></td></tr></table></div>
+   注意，路径中的空格可能需要用引号括起来。</p>
+</li>
+<li>
+<p><strong>检查<code>.git</code>目录</strong>：在仓库的根目录中，应该有一个<code>.git</code>目录。如果这个目录不存在，可能是因为克隆过程中出现了问题。你可以尝试重新克隆仓库。</p>
+</li>
+<li>
+<p><strong>初始化Git仓库</strong>：如果<code>.git</code>目录不存在，你可以使用<code>git init</code>命令来初始化一个新的Git仓库：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>git init
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>添加远程仓库</strong>：如果这是一个新的Git仓库，你需要添加远程仓库的URL：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>git remote add origin https://github.com/Slowist-Lee/college_application.git
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>拉取远程仓库的最新内容</strong>：然后，你可以再次尝试拉取最新的内容：
+   <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>git fetch origin
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>检查网络连接</strong>：如果问题依旧存在，检查你的网络连接是否正常，以及GitHub仓库的URL是否正确。</p>
+</li>
+<li>
+<p><strong>检查权限问题</strong>：确保你有权限访问该GitHub仓库。</p>
+</li>
+</ol>
+<p>如果以上步骤都无法解决问题，可能需要更详细的错误信息或者检查你的Git配置。</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
@@ -5467,16 +5526,16 @@
         
           
           <a
-            href="../../CTF/Lab%200%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"
+            href="../Git%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: CTF"
+            aria-label="下一页: Git系统学习"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                CTF
+                Git系统学习
               </div>
             </div>
             <div class="md-footer__button md-icon">
