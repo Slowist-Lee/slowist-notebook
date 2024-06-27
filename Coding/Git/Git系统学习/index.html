@@ -6,33 +6,6 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Git 的数据模型及伪代码表示：
-Text Only 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13// 文件就是一组数据
-type blob = array&lt;byte&gt;
-
-// 一个包含文件和目录的目录
-type tree = map&lt;string, tree | blob&gt;
-
-// 每个提交都包含一个父辈，元数据和顶层树
-type commit = struct {
-    parent: array&lt;commit&gt;
-    author: string
-    message: string
-    snapshot: tree
-}">
-      
       
         <meta name="author" content="Slowist">
       
@@ -5142,11 +5115,6 @@ type commit = struct {
 <!-- ---------------------------------------------------------------------- -->
 
 <!-- Determine date of last update -->
-
-  
-
-  <!-- Determine date of creation -->
-  
 
 
 <!-- Source file information -->
