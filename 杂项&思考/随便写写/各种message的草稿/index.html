@@ -5752,7 +5752,7 @@ function checkPassword() {
     var password = prompt("请输入密码:");
     if (password !== "lx051607") {
         alert("密码错误，访问被拒绝。");
-        window.location.href = "/access-denied.html"; // Redirect if the password is incorrect
+        window.location.href = "/index.html"; // Redirect if the password is incorrect
     } else {
         // Reveal the content if the password is correct
         document.getElementById("protected-content").classList.remove("hidden-content");
