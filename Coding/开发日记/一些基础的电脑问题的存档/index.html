@@ -5390,6 +5390,234 @@
 </li>
 </ol>
 <p>请注意，这一操作是不可逆的，注销账户后，所有的数据将会永久删除且无法恢复。因此，请确保你已经备份了所有需要的数据和代码。</p>
+<h2 id="5">5. 添加密码的方法<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>Yes, if you want to apply password protection specifically to the <code>各种message的草稿.md</code> file, you need to ensure that the JavaScript logic correctly identifies this file and prompts for a password when the file is accessed. </p>
+<p>To achieve this, you can follow these steps:</p>
+<ol>
+<li>
+<p><strong>Adjust the JavaScript to Target the Specific File</strong>:
+   Update the JavaScript to target the specific Markdown file's path correctly. Ensure the path matches how MkDocs generates URLs for your site.</p>
+</li>
+<li>
+<p><strong>Include the JavaScript in the Specific Page</strong>:
+   If the JavaScript isn't being loaded globally or if you need it to be applied conditionally, you can include it in the specific Markdown file.</p>
+</li>
+</ol>
+<h3 id="step-by-step-instructions">Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Permanent link">&para;</a></h3>
+<h4 id="1-update-javascript-to-target-specific-file">1. Update JavaScript to Target Specific File<a class="headerlink" href="#1-update-javascript-to-target-specific-file" title="Permanent link">&para;</a></h4>
+<p>First, update the JavaScript to target the specific file path:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">checkPassword</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;请输入密码:&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">password</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;lx051607&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">        </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;密码错误，访问被拒绝。&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/access-denied.html&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">}</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">protectedPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/docs/杂项&amp;思考/随便写写/各种message的草稿/&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">currentPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Current path:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">currentPath</span><span class="p">);</span><span class="w"> </span><span class="c1">// Debug output</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">currentPath</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="nx">protectedPath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">        </span><span class="nx">checkPassword</span><span class="p">();</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2-ensure-javascript-is-included-in-mkdocs">2. Ensure JavaScript is Included in MkDocs<a class="headerlink" href="#2-ensure-javascript-is-included-in-mkdocs" title="Permanent link">&para;</a></h4>
+<p>Ensure the <code>password-protect.js</code> is correctly referenced in your <code>mkdocs.yml</code> file:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">YAML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nt">extra_javascript</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">js/password-protect.js</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3-verify-file-paths">3. Verify File Paths<a class="headerlink" href="#3-verify-file-paths" title="Permanent link">&para;</a></h4>
+<p>Ensure that the paths match the URL structure generated by MkDocs. The path in <code>protectedPath</code> should be the URL path that corresponds to <code>各种message的草稿.md</code>.</p>
+<h4 id="4-optional-include-javascript-in-the-specific-markdown-file">4. Optional: Include JavaScript in the Specific Markdown File<a class="headerlink" href="#4-optional-include-javascript-in-the-specific-markdown-file" title="Permanent link">&para;</a></h4>
+<p>If you need the script to be conditionally loaded or want to ensure it runs only for specific pages, you can include the script directly in the Markdown file. Add the following to the <code>各种message的草稿.md</code> file:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>&lt;script&gt;
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>function checkPassword() {
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    var password = prompt(&quot;请输入密码:&quot;);
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    if (password !== &quot;lx051607&quot;) {
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>        alert(&quot;密码错误，访问被拒绝。&quot;);
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>        window.location.href = &quot;/access-denied.html&quot;;
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    }
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>}
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>    checkPassword();
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>});
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>&lt;/script&gt;
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="gh"># 各种message的草稿</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>&lt;!-- Your content goes here --&gt;
+</code></pre></div></td></tr></table></div>
+<h3 id="5-build-and-test">5. Build and Test<a class="headerlink" href="#5-build-and-test" title="Permanent link">&para;</a></h3>
+<p>After making these changes, build your MkDocs site:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>mkdocs<span class="w"> </span>build
+</code></pre></div></td></tr></table></div>
+<p>Then, test the site locally or deploy it to ensure the password prompt appears when accessing <code>各种message的草稿.md</code>.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>By following these steps, you ensure the password protection logic is applied specifically to the <code>各种message的草稿.md</code> file. This method checks the path when the document is loaded and prompts for a password accordingly. If the JavaScript is not running or the path matching is incorrect, use the console logs to debug and adjust the paths as needed.</p>
+<p>To ensure that the content is hidden until the correct password is entered, you can modify your JavaScript to hide the content initially and then reveal it only if the password is correct. You can achieve this by using CSS to hide the content and JavaScript to reveal it after the password check.</p>
+<h3 id="step-by-step-solution">Step-by-Step Solution<a class="headerlink" href="#step-by-step-solution" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Add CSS to Hide Content Initially</strong>:
+   Add a CSS rule to hide the content initially. You can include this in your main CSS file or directly within the HTML head section of your MkDocs theme.</p>
+</li>
+<li>
+<p><strong>Modify JavaScript to Reveal Content Upon Correct Password</strong>:
+   Update your JavaScript to reveal the content only if the correct password is entered.</p>
+</li>
+</ol>
+<h3 id="detailed-instructions">Detailed Instructions<a class="headerlink" href="#detailed-instructions" title="Permanent link">&para;</a></h3>
+<h4 id="1-add-css-to-hide-content-initially">1. Add CSS to Hide Content Initially<a class="headerlink" href="#1-add-css-to-hide-content-initially" title="Permanent link">&para;</a></h4>
+<p>Add the following CSS to your MkDocs theme's main CSS file or directly in the <code>index.html</code> file if you're customizing the theme:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CSS</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c">/* Hide the main content initially */</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">.</span><span class="nc">hidden-content</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2-update-javascript-to-reveal-content-upon-correct-password">2. Update JavaScript to Reveal Content Upon Correct Password<a class="headerlink" href="#2-update-javascript-to-reveal-content-upon-correct-password" title="Permanent link">&para;</a></h4>
+<p>Modify your <code>password-protect.js</code> as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span>
+<span class="normal"><a href="#__codelineno-12-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">checkPassword</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;请输入密码:&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">password</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;lx051607&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">        </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;密码错误，访问被拒绝。&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">        </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/access-denied.html&quot;</span><span class="p">;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">        </span><span class="c1">// Reveal the content if the password is correct</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;protected-content&quot;</span><span class="p">).</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;hidden-content&quot;</span><span class="p">);</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="p">}</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">protectedPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/docs/杂项&amp;思考/随便写写/各种message的草稿/&quot;</span><span class="p">;</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">currentPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">;</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Current path:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">currentPath</span><span class="p">);</span><span class="w"> </span><span class="c1">// Debug output</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">currentPath</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="nx">protectedPath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="w">        </span><span class="nx">checkPassword</span><span class="p">();</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3-wrap-content-in-a-div-with-an-id">3. Wrap Content in a Div with an ID<a class="headerlink" href="#3-wrap-content-in-a-div-with-an-id" title="Permanent link">&para;</a></h4>
+<p>Wrap the content of <code>各种message的草稿.md</code> in a <code>&lt;div&gt;</code> with an ID of <code>protected-content</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>&lt;div id=&quot;protected-content&quot; class=&quot;hidden-content&quot;&gt;
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="gh"># 各种message的草稿</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>&lt;!-- Your content goes here --&gt;
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>&lt;/div&gt;
+</code></pre></div></td></tr></table></div>
+<h3 id="full-example-for-the-markdown-file">Full Example for the Markdown File<a class="headerlink" href="#full-example-for-the-markdown-file" title="Permanent link">&para;</a></h3>
+<p>Here’s how your <code>各种message的草稿.md</code> file should look:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span>
+<span class="normal"><a href="#__codelineno-14-17">17</a></span>
+<span class="normal"><a href="#__codelineno-14-18">18</a></span>
+<span class="normal"><a href="#__codelineno-14-19">19</a></span>
+<span class="normal"><a href="#__codelineno-14-20">20</a></span>
+<span class="normal"><a href="#__codelineno-14-21">21</a></span>
+<span class="normal"><a href="#__codelineno-14-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>&lt;div id=&quot;protected-content&quot; class=&quot;hidden-content&quot;&gt;
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="gh"># 各种message的草稿</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>&lt;!-- Your content goes here --&gt;
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>&lt;/div&gt;
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>&lt;script&gt;
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>function checkPassword() {
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>    var password = prompt(&quot;请输入密码:&quot;);
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a>    if (password !== &quot;lx051607&quot;) {
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a>        alert(&quot;密码错误，访问被拒绝。&quot;);
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a>        window.location.href = &quot;/access-denied.html&quot;;
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a>    } else {
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a>        // Reveal the content if the password is correct
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a>        document.getElementById(&quot;protected-content&quot;).classList.remove(&quot;hidden-content&quot;);
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a>    }
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a>}
+<a id="__codelineno-14-18" name="__codelineno-14-18"></a>
+<a id="__codelineno-14-19" name="__codelineno-14-19"></a>document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+<a id="__codelineno-14-20" name="__codelineno-14-20"></a>    checkPassword();
+<a id="__codelineno-14-21" name="__codelineno-14-21"></a>});
+<a id="__codelineno-14-22" name="__codelineno-14-22"></a>&lt;/script&gt;
+</code></pre></div></td></tr></table></div>
+<h3 id="4-build-and-test">4. Build and Test<a class="headerlink" href="#4-build-and-test" title="Permanent link">&para;</a></h3>
+<p>Build your MkDocs site and test it locally to ensure the content is hidden until the correct password is entered:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>mkdocs<span class="w"> </span>build
+</code></pre></div></td></tr></table></div>
+<h3 id="summary_1">Summary<a class="headerlink" href="#summary_1" title="Permanent link">&para;</a></h3>
+<p>By using this approach, you ensure that the content is hidden initially and only revealed after the correct password is entered. This method provides a more secure way to protect sensitive content in your MkDocs site.</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
