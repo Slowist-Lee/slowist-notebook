@@ -98,7 +98,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#42" class="md-skip">
+        <a href="#macro-syntax-error" class="md-skip">
           跳转至
         </a>
       
@@ -827,17 +827,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Chapter4 Part I
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -847,76 +836,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      一、狭义相对论基本原理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一、狭义相对论基本原理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 爱因斯坦的思路：
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 狭义相对论的基本原理：
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.洛伦兹变换的推导
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      三、爱因斯坦速度变换
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1694,7 +1613,7 @@
         
   
   <span class="md-ellipsis">
-    - navigation # 显示右
+    无线网络应用
   </span>
   
 
@@ -4055,7 +3974,31 @@
         
   
   <span class="md-ellipsis">
-    2024-04-29
+    # _Macro Rendering Error_
+
+_File_: `Writing\Diary\2024-04-29.md`
+
+_TypeError_: Can't compile non template nodes
+
+```
+Traceback (most recent call last):
+  File "C:\Users\leexi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mkdocs_macros\plugin.py", line 525, in render
+    md_template = self.env.from_string(markdown)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leexi\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1108, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leexi\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 761, in compile
+    source = self._generate(source, name, filename, defer_init=defer_init)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leexi\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 691, in _generate
+    return generate(  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\leexi\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\compiler.py", line 112, in generate
+    raise TypeError("Can't compile non template nodes")
+TypeError: Can't compile non template nodes
+
+```
   </span>
   
 
@@ -4357,6 +4300,8 @@
       
         
       
+        
+      
     
     
       
@@ -4549,6 +4494,27 @@
   
   <span class="md-ellipsis">
     第六讲
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E6%9D%82%E9%A1%B9%26%E6%80%9D%E8%80%83/%E5%B7%A5%E4%BD%9C/%E6%94%AF%E6%95%99%E5%A4%87%E8%AF%BE%E5%BD%95/2024%20%E6%98%A5%E5%A4%8F%20%E9%9D%92%E6%B5%B7%E9%BB%84%E5%8D%97/%E7%AC%AC%E4%BA%94%E8%AE%B2%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E2%80%94%E2%80%94%E8%AE%B2%E8%A7%A3%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第五讲讲解版
   </span>
   
 
@@ -4791,6 +4757,8 @@
       
         
       
+        
+      
     
     
       
@@ -4920,6 +4888,27 @@
   
   <span class="md-ellipsis">
     CS-SUM的项目.etc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E6%94%B6%E8%97%8F%E5%A4%B9/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实用工具
   </span>
   
 
@@ -5614,65 +5603,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      一、狭义相对论基本原理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一、狭义相对论基本原理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 爱因斯坦的思路：
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 狭义相对论的基本原理：
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.洛伦兹变换的推导
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      三、爱因斯坦速度变换
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -5702,176 +5632,11 @@
   
 
 
-<h1 id="42">4.2 狭义相对论基本原理、洛伦兹变换<a class="headerlink" href="#42" title="Permanent link">&para;</a></h1>
-<h2 id="_1">一、狭义相对论基本原理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="1">1. 爱因斯坦的思路：<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>（1）以太实验的零结果：<ul>
-<li>物理现象在所有惯性系中都按相同的定律进行,对麦克斯韦方程也应成立.</li>
-<li>吸收了<strong>洛伦兹</strong> 的<strong>光速不变性</strong> </li>
-</ul>
-</li>
-<li>（2）光速不变性概念与速度合成矛盾的解决：<ul>
-<li>时间不是绝对的！</li>
-</ul>
-</li>
-</ul>
-<h3 id="2">2. 狭义相对论的基本原理：<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>都不是原创</p>
-</blockquote>
-<ul>
-<li>a.相对性原理：所有惯性系中都相同</li>
-<li>b.光速不变原理（<strong>真空中</strong>）</li>
-</ul>
-<h3 id="3">3.洛伦兹变换的推导<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>满足两个基本性质：<ul>
-<li>时空的均匀性</li>
-<li>低速下符合伽利略变换
--&gt;新变换是<strong>线性的</strong>！</li>
-</ul>
-</li>
-</ul>
-<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-23/isnv32ym.webp" /></p>
-<p>低速下:<span class="arithmatex">\(x'=x-ut\)</span>
-若要线性：<span class="arithmatex">\(x'\)</span> 正比于 <span class="arithmatex">\(x-ut\)</span> → <span class="arithmatex">\(x'=k(x-ut)\)</span>
-反过来：<span class="arithmatex">\(x=x'+ut\)</span>
-→ <span class="arithmatex">\(x=k(x'+ut)\)</span>
-考虑光的运动，设在<span class="arithmatex">\(t=t'=0\)</span>的时刻，
-(i)坐标原点O与O'重合
-(ii)位于坐标原点的光源发出光
-- 由<strong>光速不变原理</strong>，<span class="arithmatex">\(x=ct,  x'=c't'=ct'\)</span>
-- 在两个不同的参考系中，<span class="arithmatex">\(x=ct,x'=ct\)</span>
-- 再使用上面的假设：<span class="arithmatex">\(x=k(x'+ut)=ct(1),x'=k(x-ut)=ct'(2)\)</span>
-（1）×（2）：
-<span class="arithmatex">\(x·x' =k^2(x'+ut')(x-ut)=k^2（ct'+ut'）(ct-ut)=k^2(c+u)t'· (c-u)t=ct·ct'\)</span>
-<span class="arithmatex">\(→k^2(1-\frac{u^2}{c^2})t·t'=t·t'\)</span>
-→[!!]<strong>洛伦兹因子</strong> <span class="arithmatex">\(k=\frac{1}{\sqrt{1-u^2/c^2}}\)</span>
-<strong>新变换</strong>：
-<span class="arithmatex">\(∴x'=k(x-ut)=\frac{x-ut}{\sqrt{(1-u^2/c^2)}}\)</span>
-<span class="arithmatex">\(y'=y\)</span>
-<span class="arithmatex">\(z'=z\)</span> (没在这两个方向上做过变换)</p>
-<p>利用<span class="arithmatex">\(t=\frac{x}{c}\)</span>做变换：
-<span class="arithmatex">\(t=\frac{x'}{c'}=\frac{x'}{c}=\frac{1}{c}·x'=\frac{1}{c}·\frac{x-ut}{k}=\frac{1}{c}·\frac{x-ut}{\sqrt{1-u^2/c^2}}=\frac{\frac{x}{c}-\frac{u}{c}·\frac{x}{c}}{\sqrt{1-u^2/c^2}}=\frac{t-ux/c^2}{\sqrt{1-u^2/c^2}}\)</span></p>
-<p><strong>逆变换</strong>：（公式上来看，把<strong>减号</strong>改成了<strong>加号</strong>，且[!!]<span class="arithmatex">\(t→t'\)</span>）
-<img src="D:\李昕的文件夹\学习\大一上\大一春夏-笔记仓库\大一春夏-笔记仓库\Pasted image 20240416111147.png" alt="逆变换公式截图" width="150" height="200">
-【本质：】让K系相对K’系以<span class="arithmatex">\((u'=-u)\)</span>运动，得到了逆变换</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<ul>
-<li>（1）物理规律一致性→t和t'可以交换，u变为-u</li>
-<li>（2）u&lt;&lt;c,可以退化为伽利略变换</li>
-<li>（3）若不是描述光子运动，则<strong>洛伦兹变换</strong>是<strong>坐标变换</strong></li>
-<li>（4）u≤c.（真空中c是物体运动速度极限）</li>
-</ul>
-</div>
-<h3 id="_2">三、爱因斯坦速度变换<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li>洛伦兹变换两边<strong>求微分</strong>：
-【原式子】：
-<span class="arithmatex">\(x'=\frac{x-ut}{\sqrt{(1-u^2/c^2)}}\)</span></li>
-</ul>
-<p><span class="arithmatex">\(t'=\frac{t-ux/c^2}{\sqrt{1-u^2/c^2}}\)</span></p>
-<p>【求<strong>微分</strong>】：
-<span class="arithmatex">\(→dx'=\frac{dx-udt}{\sqrt{(1-u^2/c^2)}}\)</span>
-<span class="arithmatex">\(→dt'=\frac{dt-udx/c^2}{\sqrt{1-u^2/c^2}}\)</span></p>
-<p>【代入】：（同时：<span class="arithmatex">\(v_x=\frac{dx}{dt}\)</span>,上下同除<span class="arithmatex">\(dt\)</span>）</p>
-<p><span class="arithmatex">\(v^{'}_x=\frac{dx'}{dt'}\)</span>, <strong>代入</strong>:
-<span class="arithmatex">\(v^{'}_x=\frac{dx'}{dt'}=\frac{\frac{dx-udt}{\sqrt{(1-u^2/c^2)}}}{\frac{dt-udx/c^2}{\sqrt{1-u^2/c^2}}}=\frac{dx-udt}{{dt-udx/c^2}}=\frac{dx/dt-u}{{1-u\frac{dx}{dt}/c^2}}=\frac{v_x-u}{{1-uv_x/c^2}}\)</span>
-<span class="arithmatex">\(v^{'}_y=\frac{dy'}{dt}=\frac{dy\sqrt{1-u^2/c^2}}{dt-udx/c^2}=\frac{(dy/dt)\sqrt{1-u^2/c^2}}{1-u(dx/dt)/c^2}=\frac{(v_y)\sqrt{1-u^2/c^2}}{1-uv_x/c^2}\)</span>
-<span class="arithmatex">\(v^{'}_z=\frac{dz'}{dt}=\frac{dz\sqrt{1-u^2/c^2}}{dt-udx/c^2}=\frac{(dz/dt)\sqrt{1-u^2/c^2}}{1-u(dx/dt)/c^2}=\frac{(v_z)\sqrt{1-u^2/c^2}}{1-uv_x/c^2}\)</span></p>
-<ul>
-<li>速度变换/逆变换</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>（1）不仅x方向有变换、<strong>y、z也有变换</strong>，且为一个有机整体</p>
-</div>
-<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-23/5orqvz3n.webp" /></p>
-<ul>
-<li>例1：已知光在静水中的速度为c/n,n为折射率，求从地面上观察，在流速为u的水中的光速。</li>
-<li>
-<p>解：</p>
-<ul>
-<li>参考系：K是地面，K‘是流水</li>
-<li>这里<span class="arithmatex">\(v^{'}_x=\frac{c}{n}\)</span>（光相对流水的传播速度=静水速度），u是参考系相对移动的速度，这里就是流水的速度</li>
-<li><span class="arithmatex">\(v_x=\frac{v^{'}_x+u}{1+uv^{'}_x/c^2}=\frac{c/n+u}{1+u\frac{c}{n}/c^2}=\frac{c+nu}{n+u/c}\)</span></li>
-<li>特别的：当n=1时，<span class="arithmatex">\(v^{'}_x=\frac{c}{n}=c,v_x=\frac{c+u}{1+u/c}=c\)</span>
-【真空中的光速与参照系无关】</li>
-</ul>
-</li>
-<li>
-<p>例2：一飞船以0.6c的速率相对于地球飞行，一光信号从船尾传向船头，飞船上的宇航员测得飞船长100m.试求地球上的观察者测得光信号从船尾发出和到达船头两个事件的空间间隔。</p>
-</li>
-<li>解：<ul>
-<li>参考系：K是地球，K’是飞船</li>
-<li>这里<span class="arithmatex">\(u=0.6c\)</span> ,<span class="arithmatex">\(t'_2-t'_1=\frac{x'_2-x'_1}{c}=\frac{100}{c}\)</span></li>
-<li>飞船上：<span class="arithmatex">\(\Delta x'=x'_2-x'_1=100m\)</span>   </li>
-<li><span class="arithmatex">\(x_2=\frac{x'_2+ut'_2}{\sqrt{(1-u^2/c^2)}}\)</span> </li>
-<li><span class="arithmatex">\(x_1=\frac{x'_1+ut'_1}{\sqrt{(1-u^2/c^2)}}\)</span> </li>
-<li>地球上：<span class="arithmatex">\(\Delta x=x_2-x_1==\frac{x'_2+ut'_2}{\sqrt{(1-u^2/c^2)}}-=\frac{x'_1+ut'_1}{\sqrt{(1-u^2/c^2)}}=\frac{1}{\sqrt{(1-u^2/c^2)}}·[(x'_2-x'_1)+u(t'_2-t'_1)]\)</span></li>
-<li><span class="arithmatex">\(将u和\Delta t' 代入，x_2-x_1=\frac{1}{\sqrt{(1-(0.6c)^2/c^2)}}·[100+0.6c(100/c)]=160/0.8=200m\)</span></li>
-</ul>
-</li>
-</ul>
-<h1 id="43">4.3 狭义相对论的时空观<a class="headerlink" href="#43" title="Permanent link">&para;</a></h1>
-<h2 id="_3">一、同时的相对性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-23/yppk5hkg.webp" /></p>
-<h3 id="1_1">1. “同时”与参照系的关系<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
-<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-23/qlcghwo5.webp" /></p>
-<p><mark>tips</mark>：
-(1)当<span class="arithmatex">\(x_2≠x_1\)</span>时，<span class="arithmatex">\(t'_2≠t'_1。只有x_2=x_1,t'_2=t'_1\)</span>
-- K系中不同地点<b>“同时”</b>发生的两件事情，在K‘系中不同时。只有同时同地发生的事件，在其他惯性系观察才是同时的。
-    - “同时”与参照系有关，故<b>“同时”</b>是<strong>相对</strong>的
-(2)
-- u&gt;0,K'系从<span class="arithmatex">\(x_1\)</span>到<span class="arithmatex">\(x_2\)</span>,
-则<span class="arithmatex">\(x_2-x_1&gt;0\)</span>, →<span class="arithmatex">\(t^{'}_1- t^{'}_2&gt;0\)</span> → <span class="arithmatex">\(t^{'}_1&gt; t^{'}_2\)</span>  所以<span class="arithmatex">\(x_2\)</span> 位置先发生
-- u&gt;0,K'系从<span class="arithmatex">\(x_2\)</span>到<span class="arithmatex">\(x_1\)</span>,
-则<span class="arithmatex">\(x_2-x_1&gt;0\)</span>, →<span class="arithmatex">\(t^{'}_1- t^{'}_2&lt;0\)</span> → <span class="arithmatex">\(t^{'}_1&lt;t^{'}_2\)</span>  所以<span class="arithmatex">\(x_1\)</span> 位置先发生
-conclusions:越<strong>前面</strong>的越发生 (朝着速度方向的位置)</p>
-<h2 id="_4">二、长度的相对性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="1_2">1.运动系物理测量长度的定义：<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>运动</strong>系物体<strong>测量长度</strong>的定义：同时记下<strong>物体两端的位置</strong><ul>
-<li>相对静止的参照系中的长度：固有长度/定长</li>
-</ul>
-</li>
-<li>静止长度：<span class="arithmatex">\(l_0=x_2-x_1\)</span></li>
-<li>运动中测量：
-<span class="arithmatex">\(l'=x^{'}_2-x^{'}_1\)</span>
-<img alt="" src="https://file.cc98.org/v2-upload/2024-05-23/t3z5hg3a.webp" /></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<ul>
-<li>在相对棒静止的惯性系中，棒长度最大，等于棒的静长<span class="arithmatex">\(l_0\)</span>,在相对棒运动的惯性系中，棒沿运动方向的长度必小于静长→<strong>长度缩短</strong></li>
-<li><strong>适用条件</strong>：<ul>
-<li>测量<strong>运动</strong>物体的长度，<strong>同时</strong>记下位置</li>
-</ul>
-</li>
-<li>与相对运动的垂直方向不发生长度收缩</li>
-<li>e.g. 列车雷击问题：还要考虑“同时”的相对性，两个雷不是一起下落的</li>
-</ul>
-</div>
-<h2 id="_5">三、时间的相对性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>原时、两地时</li>
-<li>两地时(<span class="arithmatex">\(\frac{l}{c}\)</span>)&gt;原时(<span class="arithmatex">\(\frac{d}{c}\)</span>)
-<img alt="" src="https://file.cc98.org/v2-upload/2024-05-23/54y1bdq3.webp" /></li>
-<li>定量推导：
-<span class="arithmatex">\(l=\sqrt{d^2+(\frac{u \Delta t}{2})^2}\)</span>
-<span class="arithmatex">\(\Delta t= \frac{2l}{c}\)</span>
-由此解出<span class="arithmatex">\(\Delta t=\frac{2d/c}{\sqrt{1-u^2/c^2}}\)</span>
-又∵ <span class="arithmatex">\(\Delta t_0=\frac{2d}{c}\)</span>
-∴<span class="arithmatex">\(\Delta t=\frac{\Delta t_0}{\sqrt{1-u^2/c^2}}\)</span></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><img alt="" src="https://file.cc98.org/v2-upload/2024-05-23/vngcwft4.webp" />
-- 也可以用洛伦兹变换计算：
-- <span class="arithmatex">\(\Delta t'=t'_2-t'_1=\frac{t_2-ux/c^2-(t_1-ux/c^2)}{\sqrt{1-u^2/c^2}}=\frac{t_2-t_1}{\sqrt{1-u^2/c^2}}=\frac{\Delta t_0}{\sqrt{1-u^2/c^2}}\)</span></p>
-</div>
+<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">&para;</a></h1>
+<p><em>File</em>: <code>Learning\基础课程\大物I\Chapter4 Part I.md</code></p>
+<p><em>Line 75 in Markdown file:</em> <strong>unexpected char '^' at 1833</strong>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>$v^{&#39;}_x=\frac{dx&#39;}{dt&#39;}=\frac{\frac{dx-udt}{\sqrt{(1-u^2/c^2)}}}{\frac{dt-udx/c^2}{\sqrt{1-u^2/c^2}}}=\frac{dx-udt}{{dt-udx/c^2}}=\frac{dx/dt-u}{{1-u\frac{dx}{dt}/c^2}}=\frac{v_x-u}{{1-uv_x/c^2}}$
+</code></pre></div></td></tr></table></div></p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
