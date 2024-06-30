@@ -6054,12 +6054,9 @@ TypeError: Can't compile non template nodes
 <p>在使用 WSL（Windows Subsystem for Linux）时，如果遇到 "检测到 localhost 代理配置，但未镜像到 WSL，NAT 模式下的 WSL 不支持 localhost 代理" 的错误，可以尝试以下解决方案：</p>
 <h3 id="wsl">方法二：配置 WSL 使用代理<a class="headerlink" href="#wsl" title="Permanent link">&para;</a></h3>
 <p>如果需要在 WSL 中使用代理，可以手动配置代理设置：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">&quot;http://your_proxy:your_port&quot;</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">&quot;http://your_proxy:your_port&quot;</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">no_proxy</span><span class="o">=</span><span class="s2">&quot;localhost,127.0.0.1&quot;</span>
-</code></pre></div></td></tr></table></div>
+<p>export http_proxy="http://your_proxy:your_port"
+export https_proxy="http://your_proxy:your_port"
+export no_proxy="localhost,127.0.0.1"</p>
 <p>请将 <code>your_proxy</code> 和 <code>your_port</code> 替换为实际的代理服务器地址和端口。</p>
 <h3 id="wsl-2">方法三：升级到 WSL 2<a class="headerlink" href="#wsl-2" title="Permanent link">&para;</a></h3>
 <p>WSL 2 的网络堆栈与 WSL 1 不同，可能更适合处理网络代理问题：</p>
@@ -6067,38 +6064,35 @@ TypeError: Can't compile non template nodes
 <li>检查当前 WSL 版本：<code>wsl -l -v</code>。</li>
 <li>升级到 WSL 2：</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>wsl --set-version &lt;distribution_name&gt; 2
-</code></pre></div></td></tr></table></div>
+<p>wsl --set-version <distribution_name> 2</p>
 <p>将 <code>&lt;distribution_name&gt;</code> 替换为您的发行版名称。</p>
 <ol>
 <li>将 WSL 2 设置为默认版本：</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>wsl --set-default-version 2
-</code></pre></div></td></tr></table></div>
+<p>wsl --set-default-version 2</p>
 <h3 id="ssh_1">方法四：手动启动 SSH 服务<a class="headerlink" href="#ssh_1" title="Permanent link">&para;</a></h3>
 <p>如果只是尝试启动 SSH 服务，可以手动执行以下步骤：</p>
 <ol>
 <li>启动 WSL 终端。</li>
-<li>启动 SSH 服务：
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>sudo<span class="w"> </span>service<span class="w"> </span>ssh<span class="w"> </span>start
-</code></pre></div></td></tr></table></div></li>
+<li>启动 SSH 服务：</li>
 </ol>
+<p>sudo service ssh start</p>
 </div>
 <h1 id="ssh_2">四、连接SSH的一般步骤<a class="headerlink" href="#ssh_2" title="Permanent link">&para;</a></h1>
 <ol>
 <li>在<code>WSL</code> 里启动SSH服务</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>sudo<span class="w"> </span>service<span class="w"> </span>ssh<span class="w"> </span>start
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo<span class="w"> </span>service<span class="w"> </span>ssh<span class="w"> </span>start
 </code></pre></div></td></tr></table></div>
 <ol>
 <li>找到分配给WSL的IP</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>hostname<span class="w"> </span>-I
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>hostname<span class="w"> </span>-I
 </code></pre></div></td></tr></table></div>
 <ol>
 <li>在Windows Powershell里连接WSL</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>ssh<span class="w"> </span>your_username@WSL_IP_address
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>ssh<span class="w"> </span>your_username@WSL_IP_address
 </code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
