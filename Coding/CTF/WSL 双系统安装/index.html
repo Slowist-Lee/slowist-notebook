@@ -2768,18 +2768,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-wsl2winrwinverwindows" class="md-nav__link">
+  <a href="#23-wsl2winrwinverwindows1903" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-1903" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 此版本需要大于1903
+      2&amp;3. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本，此版本需要大于1903
     </span>
   </a>
   
@@ -5886,18 +5877,9 @@ TypeError: Can't compile non template nodes
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-wsl2winrwinverwindows" class="md-nav__link">
+  <a href="#23-wsl2winrwinverwindows1903" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-1903" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 此版本需要大于1903
+      2&amp;3. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本，此版本需要大于1903
     </span>
   </a>
   
@@ -5966,15 +5948,13 @@ TypeError: Can't compile non template nodes
 <h4 id="1-linux-windows-powershell">1.启用适用于 Linux 的 Windows 子系统：打开powershell并输入：<a class="headerlink" href="#1-linux-windows-powershell" title="Permanent link">&para;</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>dism.exe<span class="w"> </span>/online<span class="w"> </span>/enable-feature<span class="w"> </span>/featurename:Microsoft-Windows-Subsystem-Linux<span class="w"> </span>/all<span class="w"> </span>/norestart
 </code></pre></div></td></tr></table></div>
-<p><img alt="" src="https://img-blog.csdnimg.cn/e0da4bfae19b4b7fadd687e676f802cc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6YeR5aOr6aG_,size_20,color_FFFFFF,t_70,g_se,x_16" /></p>
-<h4 id="2-wsl2winrwinverwindows">2. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本<a class="headerlink" href="#2-wsl2winrwinverwindows" title="Permanent link">&para;</a></h4>
-<p><img alt="" src="https://img-blog.csdnimg.cn/1998a902b2e34c0493ae0f3d1eaa0004.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6YeR5aOr6aG_,size_15,color_FFFFFF,t_70,g_se,x_16" /></p>
-<h4 id="3-1903">3. 此版本需要大于1903<a class="headerlink" href="#3-1903" title="Permanent link">&para;</a></h4>
-<p><img alt="" src="https://img-blog.csdnimg.cn/d5d1e75b92d8441a88f65695a58d1156.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6YeR5aOr6aG_,size_20,color_FFFFFF,t_70,g_se,x_16" /></p>
+<p><img alt="" src="https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%201.png?raw=true" /></p>
+<h4 id="23-wsl2winrwinverwindows1903">2&amp;3. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本，此版本需要大于1903<a class="headerlink" href="#23-wsl2winrwinverwindows1903" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%203.png?raw=true" /></p>
 <h4 id="4-powershell">4. 启用虚拟化:以管理员打开powershell输入下列命令<a class="headerlink" href="#4-powershell" title="Permanent link">&para;</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 </code></pre></div></td></tr></table></div>
-<p><img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/d65ba7713e364e12bd11c5cf1bdadeac.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6YeR5aOr6aG_,size_20,color_FFFFFF,t_70,g_se,x_16" /></p>
+<p><img alt="在这里插入图片描述" src="https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%204.png?raw=true" /></p>
 <h4 id="5-x64wsl2-linux">5. 下载<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">X64的WSL2 Linux内核升级包</a>并安装<a class="headerlink" href="#5-x64wsl2-linux" title="Permanent link">&para;</a></h4>
 <h4 id="6-wsl">6. 设置WSL默认版本<a class="headerlink" href="#6-wsl" title="Permanent link">&para;</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>wsl --set-default-version 2
@@ -5982,7 +5962,7 @@ TypeError: Can't compile non template nodes
 <h1 id="ubuntu2004lts">二、安装Ubuntu20.04LTS<a class="headerlink" href="#ubuntu2004lts" title="Permanent link">&para;</a></h1>
 <h4 id="1microsoft-store">1.打开Microsoft Store<a class="headerlink" href="#1microsoft-store" title="Permanent link">&para;</a></h4>
 <h4 id="2-windowsubuntuubuntu">2. 一般Windows都会将ubuntu加入到我的软件库中，如果没有可以自行搜索ubuntu然后安装，搜索到商店的有可能安装不了<a class="headerlink" href="#2-windowsubuntuubuntu" title="Permanent link">&para;</a></h4>
-<p><img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/ace268844a674ec18db4cbdb4c9a161e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6YeR5aOr6aG_,size_20,color_FFFFFF,t_70,g_se,x_16" /></p>
+<p><img alt="在这里插入图片描述" src="https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%205.png?raw=true" /></p>
 <h4 id="3-ubuntu-2004lts">3. 找到Ubuntu 20.04LTS点击安装即可，这里我已经安装好了直接点击启动就行<a class="headerlink" href="#3-ubuntu-2004lts" title="Permanent link">&para;</a></h4>
 <h4 id="4-net-winsock-reset">4. 打开后设置初始的用户名和密码即可，如果出现参考的对象类型不支持尝试的操作，请重置下网络net winsock reset<a class="headerlink" href="#4-net-winsock-reset" title="Permanent link">&para;</a></h4>
 <p><mark>Tips</mark>: 用户名应该只包含<strong>小写</strong>字母和数字，并且不能以数字开头，否则会报错</p>
