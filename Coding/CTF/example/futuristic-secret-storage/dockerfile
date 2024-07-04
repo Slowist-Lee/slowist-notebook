@@ -1,0 +1,10 @@
+FROM python:latest
+
+RUN apt update && apt install -y socat
+
+COPY flagwriter /flagwriter
+
+EXPOSE 7223
+
+CMD socat tcp-l:7223,reuseaddr,fork exec:"script -qc /flagwriter /dev/null"
+

@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:smoking",
+    "ingredient": {
+        "item": "minecraft:glass_bottle"
+    },
+    "result": "minecraft:experience_bottle",
+    "experience": 0.0
+}
