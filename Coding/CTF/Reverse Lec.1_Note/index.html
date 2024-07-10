@@ -6354,7 +6354,7 @@ Linus→ELF</p>
 <p>对于<code>gcc</code>而言：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>as<span class="w"> </span>hello.s<span class="w"> </span>-o<span class="w"> </span>hello.o
 </code></pre></div></td></tr></table></div>
-<p>![[Pasted image 20240710222045.png]]</p>
+<p><img alt="alt text" src="../Pasted%20image%2020240710223123-1.png" /></p>
 <blockquote>
 <p>混用会怎么样？见<code>reverse-lab1</code></p>
 </blockquote>
@@ -6463,7 +6463,7 @@ Linus→ELF</p>
 <p>可以发现这里暂时<code>callq  27 &lt;main+0x27&gt;</code>, <code>call</code>了一个内容，这部分函数需要<strong>重定向</strong></p>
 <p>而关于程序中的<strong>链接</strong>：
 <code>-v</code> 指令可以帮我们看 <code>gcc</code> 编译过程中将会链接什么(从课堂的演示中可以看出链接非常非常多)</p>
-<p>![[Pasted image 20240710225312.png]]
+<p><img alt="alt text" src="../Pasted%20image%2020240710225312-1.png" />
 链接的数量庞大，因此速度就会有快有慢
 在终端输入<code>ld</code>, 并且按<code>Tab</code>两次，来看<code>ld</code>相关的程序：</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
@@ -6477,7 +6477,7 @@ Linus→ELF</p>
 <p><code>ld</code>因此也是程序执行速度的一个关键</p>
 <h2 id="24">2.4 静态链接和动态链接<a class="headerlink" href="#24" title="Permanent link">&para;</a></h2>
 <p>图解：</p>
-<p>![[Pasted image 20240710230124.png]]</p>
+<p><img alt="alt text" src="../Pasted%20image%2020240710230124-1.png" /></p>
 <p>静态链接： <code>statically linked</code> ：每一个执行<code>printf</code>的程序都链接一遍；
 动态链接：<code>dynamically linked</code>, 所有的<code>printf</code>链接同一个来源</p>
 <p>可以通过<code>file</code>命令来看是静态/动态链接：</p>
