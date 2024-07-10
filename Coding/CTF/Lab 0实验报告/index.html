@@ -11,7 +11,7 @@
       
       
       
-        <link rel="prev" href="../CTF_Misc_Basic_Encoding/">
+        <link rel="prev" href="../Reverse%20Lec.1_Note/">
       
       
         <link rel="next" href="../WSL%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
@@ -2669,12 +2669,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
       
@@ -2739,74 +2733,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../CTF%20Lecture%201/" class="md-nav__link">
+      <a href="../Reverse%20Lec.1_Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reverse_Basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CTF Lecture 1.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     CTF Lecture 1
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../20240702_note%28especially%20lab0%29/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20240702_note(especially lab0)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../20240703_note/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20240703_note
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CTF_Misc_Basic_Encoding/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CTF_Misc_Basic_Encoding
   </span>
   
 
@@ -3006,27 +2958,6 @@
   
   <span class="md-ellipsis">
     WSL 双系统安装
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Web/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Web
   </span>
   
 
@@ -6897,6 +6828,306 @@
 <p>因此最终flag是<code>b75d17f8-8e78-43f0-bbbb-224a8b72a227</code>
 成功截图：
 <img alt="" src="https://file.cc98.org/v2-upload/2024-06-05/tsdsemcw.webp" /></p>
+<h1 id="3-pwn">3 Pwn<a class="headerlink" href="#3-pwn" title="Permanent link">&para;</a></h1>
+<h2 id="31-bug">3.1 Bug 描述<a class="headerlink" href="#31-bug" title="Permanent link">&para;</a></h2>
+<ol>
+<li>在主函数调用中：</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span>
+<span class="normal"><a href="#__codelineno-26-15">15</a></span>
+<span class="normal"><a href="#__codelineno-26-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="p">{</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">hbpkt</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_heart_beat</span><span class="p">();</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="w">        </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reply_heart_beat</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>发现<code>free(p)</code>指令仅会在触发错误的时候发生，也就是说，假设读取未发生错误一直不会释放内存，这样最终会耗尽内存，导致内存泄漏</p>
+<ol>
+<li><code>fread(tmp-&gt;data, tmp-&gt;size - sizeof(struct hbpkt), 1, stdin);</code></li>
+</ol>
+<p><code>size-sizeof(struct hbpkt)</code>不一定大于0，如果构造恶意的<code>size</code>小于0，则会读到不该读的数据</p>
+<ol>
+<li>在输出数据流里</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-27-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-27-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-27-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-27-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-27-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-27-10">10</a></span>
+<span class="normal"><a href="#__codelineno-27-11">11</a></span>
+<span class="normal"><a href="#__codelineno-27-12">12</a></span>
+<span class="normal"><a href="#__codelineno-27-13">13</a></span>
+<span class="normal"><a href="#__codelineno-27-14">14</a></span>
+<span class="normal"><a href="#__codelineno-27-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">reply_heart_beat</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">hbpkt</span><span class="w"> </span><span class="o">*</span><span class="n">pkt</span><span class="p">)</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="p">{</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">written</span><span class="p">;</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkt</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="w">        </span><span class="n">written</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fwrite</span><span class="p">(</span><span class="n">pkt</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">pkt</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="w">        </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">written</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">pkt</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="w">        </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-27-13" name="__codelineno-27-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-27-14" name="__codelineno-27-14"></a><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
+<a id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>这里的<code>size</code>和<code>real_size = sizeof(struct hbpkt) + strlen(tmp-&gt;data) + 1</code>不一致，<code>real_size</code>是真正读到的数据长度，而输出的长度是<code>size</code>, 如果<code>size</code>比<code>real_size</code>更大，则会导致内存泄漏</p>
+<h2 id="32">3.2 触发漏洞<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<h1 id="4-reverse">4 Reverse<a class="headerlink" href="#4-reverse" title="Permanent link">&para;</a></h1>
+<p>逆向步骤：将程序拖进IDA，F5反汇编</p>
+<p>![[Pasted image 20240703103102.png]]</p>
+<p>反汇编出来的结果如下：
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span>
+<span class="normal"><a href="#__codelineno-28-12">12</a></span>
+<span class="normal"><a href="#__codelineno-28-13">13</a></span>
+<span class="normal"><a href="#__codelineno-28-14">14</a></span>
+<span class="normal"><a href="#__codelineno-28-15">15</a></span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span>
+<span class="normal"><a href="#__codelineno-28-17">17</a></span>
+<span class="normal"><a href="#__codelineno-28-18">18</a></span>
+<span class="normal"><a href="#__codelineno-28-19">19</a></span>
+<span class="normal"><a href="#__codelineno-28-20">20</a></span>
+<span class="normal"><a href="#__codelineno-28-21">21</a></span>
+<span class="normal"><a href="#__codelineno-28-22">22</a></span>
+<span class="normal"><a href="#__codelineno-28-23">23</a></span>
+<span class="normal"><a href="#__codelineno-28-24">24</a></span>
+<span class="normal"><a href="#__codelineno-28-25">25</a></span>
+<span class="normal"><a href="#__codelineno-28-26">26</a></span>
+<span class="normal"><a href="#__codelineno-28-27">27</a></span>
+<span class="normal"><a href="#__codelineno-28-28">28</a></span>
+<span class="normal"><a href="#__codelineno-28-29">29</a></span>
+<span class="normal"><a href="#__codelineno-28-30">30</a></span>
+<span class="normal"><a href="#__codelineno-28-31">31</a></span>
+<span class="normal"><a href="#__codelineno-28-32">32</a></span>
+<span class="normal"><a href="#__codelineno-28-33">33</a></span>
+<span class="normal"><a href="#__codelineno-28-34">34</a></span>
+<span class="normal"><a href="#__codelineno-28-35">35</a></span>
+<span class="normal"><a href="#__codelineno-28-36">36</a></span>
+<span class="normal"><a href="#__codelineno-28-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kr">__int64</span><span class="w"> </span><span class="kr">__fastcall</span><span class="w"> </span><span class="n">verify</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">passwd</span><span class="p">)</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="p">{</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span><span class="w"> </span><span class="c1">// ecx</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v3</span><span class="p">;</span><span class="w"> </span><span class="c1">// r8d</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v4</span><span class="p">;</span><span class="w"> </span><span class="c1">// r9d</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">v5</span><span class="p">;</span><span class="w"> </span><span class="c1">// [rsp+0h] [rbp-F0h]</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// [rsp+18h] [rbp-D8h]</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">table</span><span class="p">[</span><span class="mi">14</span><span class="p">];</span><span class="w"> </span><span class="c1">// [rsp+20h] [rbp-D0h]</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span><span class="w"> </span><span class="c1">// [rsp+90h] [rbp-60h] BYREF</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kr">__int64</span><span class="w"> </span><span class="n">v9</span><span class="p">;</span><span class="w"> </span><span class="c1">// [rsp+D8h] [rbp-18h]</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11"></a>
+<a id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="w">  </span><span class="n">v9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__readfsqword</span><span class="p">(</span><span class="mh">0x28u</span><span class="p">);</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1040&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1040&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1040&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1968&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1152&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1680&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-19" name="__codelineno-28-19"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1312&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-20" name="__codelineno-28-20"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1616&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-21" name="__codelineno-28-21"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1888&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-22" name="__codelineno-28-22"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1616&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-23" name="__codelineno-28-23"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1824&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-24" name="__codelineno-28-24"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1840&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-25" name="__codelineno-28-25"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1616&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-26" name="__codelineno-28-26"></a><span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2000&quot;</span><span class="p">;</span>
+<a id="__codelineno-28-27" name="__codelineno-28-27"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j_strlen_ifunc</span><span class="p">(</span><span class="n">passwd</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-28-28" name="__codelineno-28-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">1L</span><span class="n">L</span><span class="p">;</span>
+<a id="__codelineno-28-29" name="__codelineno-28-29"></a><span class="w">  </span><span class="n">memset</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">tmp</span><span class="p">));</span>
+<a id="__codelineno-28-30" name="__codelineno-28-30"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kr">__int64</span><span class="p">)</span><span class="n">j_strlen_ifunc</span><span class="p">(</span><span class="n">passwd</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-28-31" name="__codelineno-28-31"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-28-32" name="__codelineno-28-32"></a><span class="w">    </span><span class="n">sprintf</span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">passwd</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">v3</span><span class="p">,</span><span class="w"> </span><span class="n">v4</span><span class="p">,</span><span class="w"> </span><span class="n">v5</span><span class="p">);</span>
+<a id="__codelineno-28-33" name="__codelineno-28-33"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="n">j_strcmp_ifunc</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-28-34" name="__codelineno-28-34"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mf">1L</span><span class="n">L</span><span class="p">;</span>
+<a id="__codelineno-28-35" name="__codelineno-28-35"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-28-36" name="__codelineno-28-36"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mf">0L</span><span class="n">L</span><span class="p">;</span>
+<a id="__codelineno-28-37" name="__codelineno-28-37"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>从这段程序里可以知道比较的是输入和这里的table，长度为14，计算每个字符的ASCII码乘以16</p>
+<p>最后手动算一下结果：65 65 65 123  72 105 82 101  118 101 114 115 101 125
+输入：<code>AAA{HiReverse}</code></p>
+<p>→<code>Access Granted</code></p>
+<p>![[Pasted image 20240703103800.png]]</p>
+<h1 id="5-misc">5 Misc<a class="headerlink" href="#5-misc" title="Permanent link">&para;</a></h1>
+<h2 id="51-challenge-1">5.1 Challenge 1<a class="headerlink" href="#51-challenge-1" title="Permanent link">&para;</a></h2>
+<p>丢进<code>CyberChef</code>, 拖入<code>Magic</code></p>
+<p>![[Pasted image 20240707150942.png]]</p>
+<p>找到有意义的字符串<code>flag</code></p>
+<p><code>AAA{wELc0m3_t0_Ctf_5umMEr_c0UrsE_2024}</code></p>
+<h2 id="52-challenge-2">5.2 Challenge 2<a class="headerlink" href="#52-challenge-2" title="Permanent link">&para;</a></h2>
+<p>将图片拖进CyberChef， 使用<code>View Bit Plane</code>：</p>
+<p>![[Pasted image 20240702234751.png]]</p>
+<p>flag的第一部分在图片中，发现是有意义的: great job! let's ...
+第二部分在文件里：play misc together</p>
+<p>所以拼接起来，最后得到的Flag值如下：</p>
+<p><code>AAA{gr3@t_J08!_let'5_P1@y_m1SC_TOG3Th3R}</code></p>
+<h1 id="6-crypto">6 Crypto<a class="headerlink" href="#6-crypto" title="Permanent link">&para;</a></h1>
+<h2 id="61-challenge-1">6.1 Challenge 1<a class="headerlink" href="#61-challenge-1" title="Permanent link">&para;</a></h2>
+<p>知道不同的符号代表不同的字母，又知道空圆圈代表空格，于是调用python中的PIL库进行读取，每一个不同的轮廓给一个不同的字符，然后遍历每一个位置.</p>
+<p>查看文件信息：图片的大小是<code>1344*832</code>,发现符号是<code>21*13</code>,所以可以知道符号大小是<code>64*64</code></p>
+<p>因此编写脚本如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span>
+<span class="normal"><a href="#__codelineno-29-11">11</a></span>
+<span class="normal"><a href="#__codelineno-29-12">12</a></span>
+<span class="normal"><a href="#__codelineno-29-13">13</a></span>
+<span class="normal"><a href="#__codelineno-29-14">14</a></span>
+<span class="normal"><a href="#__codelineno-29-15">15</a></span>
+<span class="normal"><a href="#__codelineno-29-16">16</a></span>
+<span class="normal"><a href="#__codelineno-29-17">17</a></span>
+<span class="normal"><a href="#__codelineno-29-18">18</a></span>
+<span class="normal"><a href="#__codelineno-29-19">19</a></span>
+<span class="normal"><a href="#__codelineno-29-20">20</a></span>
+<span class="normal"><a href="#__codelineno-29-21">21</a></span>
+<span class="normal"><a href="#__codelineno-29-22">22</a></span>
+<span class="normal"><a href="#__codelineno-29-23">23</a></span>
+<span class="normal"><a href="#__codelineno-29-24">24</a></span>
+<span class="normal"><a href="#__codelineno-29-25">25</a></span>
+<span class="normal"><a href="#__codelineno-29-26">26</a></span>
+<span class="normal"><a href="#__codelineno-29-27">27</a></span>
+<span class="normal"><a href="#__codelineno-29-28">28</a></span>
+<span class="normal"><a href="#__codelineno-29-29">29</a></span>
+<span class="normal"><a href="#__codelineno-29-30">30</a></span>
+<span class="normal"><a href="#__codelineno-29-31">31</a></span>
+<span class="normal"><a href="#__codelineno-29-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="n">width</span> <span class="o">=</span> <span class="mi">64</span>  <span class="c1"># 符号的宽度</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="n">height</span> <span class="o">=</span> <span class="mi">64</span>  <span class="c1"># 符号的高度</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="k">def</span> <span class="nf">bw_judge</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>    <span class="n">Gray_scale</span> <span class="o">=</span> <span class="mf">0.299</span> <span class="o">*</span> <span class="n">R</span> <span class="o">+</span> <span class="mf">0.587</span> <span class="o">*</span> <span class="n">G</span> <span class="o">+</span> <span class="mf">0.114</span> <span class="o">*</span> <span class="n">B</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    <span class="k">return</span> <span class="n">Gray_scale</span> <span class="o">&lt;</span> <span class="mi">128</span>  <span class="c1"># 调整阈值</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="k">def</span> <span class="nf">symbol_hash</span><span class="p">(</span><span class="n">symbol</span><span class="p">):</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a>    <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">symbol</span><span class="p">))</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;path/to/crypto_challenge1.png&quot;</span><span class="p">)</span> <span class="c1"># 写对应path</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="n">pixels</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="n">symbolpool</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-29-13" name="__codelineno-29-13"></a><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">):</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a>    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">):</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15"></a>        <span class="n">symbol</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">width</span><span class="p">)]</span>  <span class="c1"># 一个存放符号的矩阵</span>
+<a id="__codelineno-29-16" name="__codelineno-29-16"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">64</span><span class="p">):</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">64</span><span class="p">):</span>
+<a id="__codelineno-29-18" name="__codelineno-29-18"></a>                <span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">pixels</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">64</span> <span class="o">*</span> <span class="n">col</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">64</span> <span class="o">*</span> <span class="n">row</span><span class="p">]</span>
+<a id="__codelineno-29-19" name="__codelineno-29-19"></a>                <span class="n">symbol</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bw_judge</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span>
+<a id="__codelineno-29-20" name="__codelineno-29-20"></a>        <span class="n">symbol_hash_value</span> <span class="o">=</span> <span class="n">symbol_hash</span><span class="p">(</span><span class="n">symbol</span><span class="p">)</span>
+<a id="__codelineno-29-21" name="__codelineno-29-21"></a>        <span class="k">if</span> <span class="n">symbol_hash_value</span> <span class="ow">in</span> <span class="n">symbolpool</span><span class="p">:</span>
+<a id="__codelineno-29-22" name="__codelineno-29-22"></a>            <span class="n">idx</span> <span class="o">=</span> <span class="n">symbolpool</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">symbol_hash_value</span><span class="p">)</span>
+<a id="__codelineno-29-23" name="__codelineno-29-23"></a>            <span class="n">symbolcnt</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-29-24" name="__codelineno-29-24"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-29-25" name="__codelineno-29-25"></a>            <span class="n">symbolpool</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">symbol_hash_value</span><span class="p">)</span>
+<a id="__codelineno-29-26" name="__codelineno-29-26"></a>            <span class="n">symbolcnt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-29-27" name="__codelineno-29-27"></a>        <span class="k">if</span> <span class="n">symbolpool</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">symbol_hash_value</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">27</span><span class="p">:</span>
+<a id="__codelineno-29-28" name="__codelineno-29-28"></a>            <span class="c1"># 将索引限制在0到25范围内（对应A到Z）</span>
+<a id="__codelineno-29-29" name="__codelineno-29-29"></a>            <span class="n">str1</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">((</span><span class="n">symbolpool</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">symbol_hash_value</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span><span class="p">)</span> <span class="o">+</span> <span class="mi">65</span><span class="p">)</span>
+<a id="__codelineno-29-30" name="__codelineno-29-30"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-29-31" name="__codelineno-29-31"></a>            <span class="n">str1</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">((</span><span class="n">symbolpool</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">symbol_hash_value</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span><span class="p">)</span> <span class="o">+</span> <span class="mi">97</span><span class="p">)</span>
+<a id="__codelineno-29-32" name="__codelineno-29-32"></a><span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>输出结果：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>ABCDEFGHAFIJKDLMINNDOPFHNPQLHIRPLSNPFDTAUAFPIVICWBCHXKINHFBSRPCHIYAFPQBLDZPRAIADBJKFHNPAFPQNBAHRRDBCIMIRRIRRDJNHHRPFDNHXKDLMHLDbDCIAPFDTABbBNNBcRFPKDLMEUAUAFPKINHFBSRPICXVHZBbPAFPADNRGQHNRBJAUWDRZBOHYFDdZBNQRPKDAefRANBCgILDVhAFHRPQBLDZPBAADZHNdIVRBLSAHLiZIJCBGINNHRGFHYjjjj
+</code></pre></div></td></tr></table></div>
+<p>下面，通过截图，会发现空格有大有小，所以手动较对密码的值，校对结果如下，</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>ABCDEFA,HAFIC,KDLL,INNDOH,FHNH,QLHIRH,LSNH,FDT,AB,AFH,IVICWBCHW,KINHFBSRH,CHIN,AFH,QBLDZH,RAIADBC,KFHNH,AFH,QNBAHRRDBCIL,IRRIRRDC,NHHRH,FDNHW,KDLL,HLDTDCIAH,FDT,ABTBNNBC,RFH,KDLL,EB,AB,AFH,KINHFBSRH,ICW,VHZBBH,AFH,ADNRA,QHNRBC,AB,WDRZBOHN,FDR,ZBNQRH,KDAE,F,RANBCE,ILDVH,AFHRH,QBLDZH,BYYDZHNR,IVRBLSAHLP,ZIC,CBA,INNHRA,FHN
+</code></pre></div></td></tr></table></div>
+<p>（这里用<code>,</code>来代替了空格）</p>
+<p>接着放到<code>https://www.quipqiup.com/#google_vignette</code>进行词频分析：</p>
+<p>得到有意义的结果：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>to night ethan will arrive here please lure him to the abandoned warehouse near the police station where the prot essional assassin reese hired will eliminate him to morron she will go to the warehouse and be cooethe tirst person to discover his corpse witgh strong alibe these police officers absolutely cannot arrest her
+</code></pre></div></td></tr></table></div>
+<p>→</p>
+<p>到了晚上，伊桑将到达这里，请引诱他到警察局附近的废弃仓库，在那里，里斯雇佣的专业杀手将把他送到莫伦那里。她将前往仓库，成为发现他的尸体的最有力的人，有强有力的不在场证明，这些警察绝对不能逮捕她</p>
+<h2 id="62-challenge-2">6.2 Challenge 2<a class="headerlink" href="#62-challenge-2" title="Permanent link">&para;</a></h2>
+<p>发现加密的算法是一段RSA算法</p>
+<p>编写解密部分：
+- 利用<code>pow</code>, 求出<span class="arithmatex">\(e\)</span>关于<span class="arithmatex">\(\varphi (N)\)</span>的模反元素<span class="arithmatex">\(d\)</span>
+- 再利用<code>pow</code>，求出<span class="arithmatex">\(c^d \equiv m \pmod{n}\)</span>
+- <span class="arithmatex">\(m\)</span>即为需要求解的明文</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-33-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-33-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-33-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-33-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-33-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-33-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-33-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-33-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-33-10">10</a></span>
+<span class="normal"><a href="#__codelineno-33-11">11</a></span>
+<span class="normal"><a href="#__codelineno-33-12">12</a></span>
+<span class="normal"><a href="#__codelineno-33-13">13</a></span>
+<span class="normal"><a href="#__codelineno-33-14">14</a></span>
+<span class="normal"><a href="#__codelineno-33-15">15</a></span>
+<span class="normal"><a href="#__codelineno-33-16">16</a></span>
+<span class="normal"><a href="#__codelineno-33-17">17</a></span>
+<span class="normal"><a href="#__codelineno-33-18">18</a></span>
+<span class="normal"><a href="#__codelineno-33-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">long_to_bytes</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="n">p</span> <span class="o">=</span> <span class="mh">0x848cc7edca3d2feef44961881e358cbe924df5bc0f1e7178089ad6dc23fa1eec7b0f1a8c6932b870dd53faf35b22f35c8a7a0d130f69e53a91d0330c0af2c5ab</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="n">q</span> <span class="o">=</span> <span class="mh">0xa0ac7bcd3b1e826fdbd1ee907e592c163dea4a1a94eb03fd4d3ce58c2362100ec20d96ad858f1a21e8c38e1978d27cd3ab833ee344d8618065c003d8ffd0b1cb</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">q</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a>
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="n">e</span> <span class="o">=</span> <span class="mh">0x10001</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10"></a>
+<a id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="n">c</span> <span class="o">=</span> <span class="mh">0x39f68bd43d1433e4fcbbe8fc0063661c97639324d63e67dedb6f4ed4501268571f128858b2f97ee7ce0407f24320a922787adf4d0233514934bbd7e81e4b4d07b423949c85ae3cc172ea5bcded917b5f67f18c2c6cd1b2dd98d7db941697ececdfc90507893579081f7e3d5ddeb9145a715abc20c4a938d32131013966bea539</span>
+<a id="__codelineno-33-12" name="__codelineno-33-12"></a>
+<a id="__codelineno-33-13" name="__codelineno-33-13"></a><span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-33-14" name="__codelineno-33-14"></a>
+<a id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="n">d</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">phi</span><span class="p">)</span>
+<a id="__codelineno-33-16" name="__codelineno-33-16"></a>
+<a id="__codelineno-33-17" name="__codelineno-33-17"></a><span class="n">m</span><span class="o">=</span><span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-33-18" name="__codelineno-33-18"></a>
+<a id="__codelineno-33-19" name="__codelineno-33-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">long_to_bytes</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>flag：<code>AAA{Ace_Attorney_is_very_fun_Phoenix_Wright&amp;Miles_Edgeworth}</code></p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
@@ -7105,9 +7336,9 @@
         
           
           <a
-            href="../CTF_Misc_Basic_Encoding/"
+            href="../Reverse%20Lec.1_Note/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="上一页: CTF_Misc_Basic_Encoding"
+            aria-label="上一页: Reverse_Basic"
           >
             <div class="md-footer__button md-icon">
               
@@ -7118,7 +7349,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                CTF_Misc_Basic_Encoding
+                Reverse_Basic
               </div>
             </div>
             

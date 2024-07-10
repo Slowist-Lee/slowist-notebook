@@ -2642,12 +2642,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
       
@@ -2709,74 +2703,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../Coding/CTF/CTF%20Lecture%201/" class="md-nav__link">
+      <a href="../Coding/CTF/Reverse%20Lec.1_Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reverse_Basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Coding/CTF/CTF Lecture 1.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     CTF Lecture 1
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Coding/CTF/20240702_note%28especially%20lab0%29/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20240702_note(especially lab0)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Coding/CTF/20240703_note/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20240703_note
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Coding/CTF/CTF_Misc_Basic_Encoding/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CTF_Misc_Basic_Encoding
   </span>
   
 
@@ -2819,27 +2771,6 @@
   
   <span class="md-ellipsis">
     WSL 双系统安装
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Coding/CTF/Web/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Web
   </span>
   
 
@@ -6040,6 +5971,21 @@
 <li>（当时为了工高报名勉强看了一点深度学习（如果这也算的话</li>
 <li>（当时还是为了工高报名学会了基础的Unity的C#脚本（如果这也算的话</li>
 </ol>
+<p>前端与后端在web应用中有哪些区别，分别起到什么作用</p>
+<p>前端：主要负责可视化（html、css)、人机交互逻辑(js)、缓存（cookie）
+后端：主要负责服务端，e.g.数据库，服务器，API等，个人感觉更多是数据上的储存，安全的维护和性能上的考量[？]</p>
+<p>前端更多负责这个网站/APP的呈现，后端更多负责整个网站的数据库管理和运维，两者通过API联系</p>
+<p>在ACEE实践面中写C#的脚本，困难主要是自己一直没修C，对于C非常不熟悉，而且时间太紧（只有2天），还有前面队友的蚁群算法要对接</p>
+<p>过程是：
+1. 先学Unity的基本用法，掌握比如元素、渲染器等一些概念
+2. 产生将地图分割成块进行克隆的想法
+3. 实现：
+    1. 先是在Unity内部尝试新建各种各样的材质然后列表分配，无果
+    2. 然后尝试手敲N个RGB，分到列表里，用Renderer相应的函数进行调用
+    3. 在生成9 * 9 小规模地图之后进行扩大
+    4. 读取的txt最后和队友写的蚂蚁移动脚本对接</p>
+<p>时间：实践面只给了3天，完成地图大概只允许我用去一天x 所以也是比较短暂的经历了
+ 还没有解决的困难：因为这个项目比较大，后续我和我队友的对接出现了比较大的问题（队友写的蚁群算法中信息素含量过小，无法可视化）所以我们最终没有合理去呈现出蚁群算法的可视化，不过这个问题感觉是可以通过数学算式解决的…</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 

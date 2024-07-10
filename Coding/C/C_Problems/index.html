@@ -2679,12 +2679,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
       
@@ -2749,74 +2743,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CTF/CTF%20Lecture%201/" class="md-nav__link">
+      <a href="../../CTF/Reverse%20Lec.1_Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reverse_Basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CTF/CTF Lecture 1.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     CTF Lecture 1
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../CTF/20240702_note%28especially%20lab0%29/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20240702_note(especially lab0)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../CTF/20240703_note/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20240703_note
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../CTF/CTF_Misc_Basic_Encoding/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CTF_Misc_Basic_Encoding
   </span>
   
 
@@ -2859,27 +2811,6 @@
   
   <span class="md-ellipsis">
     WSL 双系统安装
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../CTF/Web/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Web
   </span>
   
 
@@ -7093,6 +7024,58 @@
 <a id="__codelineno-24-64" name="__codelineno-24-64"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-24-65" name="__codelineno-24-65"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h1 id="problem-5-python">Problem 5 （乱入python<a class="headerlink" href="#problem-5-python" title="Permanent link">&para;</a></h1>
+<p>在Python中，如果你遇到<code>Optional</code>和<code>List</code>的报错，很可能是因为没有正确导入这些类型提示。<code>Optional</code>和<code>List</code>都是来自<code>typing</code>模块的类型提示，需要先导入它们才能使用。</p>
+<p>确保你在代码的开头导入了这些类型提示：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+</code></pre></div></td></tr></table></div>
+<p>这里是一个完整的例子，包含了正确的导入和方法定义：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span>
+<span class="normal"><a href="#__codelineno-26-15">15</a></span>
+<span class="normal"><a href="#__codelineno-26-16">16</a></span>
+<span class="normal"><a href="#__codelineno-26-17">17</a></span>
+<span class="normal"><a href="#__codelineno-26-18">18</a></span>
+<span class="normal"><a href="#__codelineno-26-19">19</a></span>
+<span class="normal"><a href="#__codelineno-26-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="c1"># 假设有一个TreeNode类定义如下</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>    <span class="k">def</span> <span class="nf">midtransfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">inorder_traversal</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a>        <span class="k">return</span> <span class="n">result</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a>
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a>    <span class="k">def</span> <span class="nf">inorder_traversal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">],</span> <span class="n">result</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17"></a>        <span class="k">if</span> <span class="n">node</span><span class="p">:</span>
+<a id="__codelineno-26-18" name="__codelineno-26-18"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">inorder_traversal</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19"></a>            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-26-20" name="__codelineno-26-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">inorder_traversal</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>在这个例子中：</p>
+<ul>
+<li><code>Optional[TreeNode]</code> 表示参数 <code>root</code> 可以是 <code>TreeNode</code> 类型或 <code>None</code>。</li>
+<li><code>List[int]</code> 表示返回类型是包含整数的列表。</li>
+</ul>
+<p>请确保你的代码文件顶部包含<code>from typing import Optional, List</code>这一行，这样Python解释器就能识别这些类型提示，不会报错。</p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
