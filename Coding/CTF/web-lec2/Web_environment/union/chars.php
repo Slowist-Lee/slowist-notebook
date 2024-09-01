@@ -1,10 +1,13 @@
 <?php
 // 数据库连接信息
+// $servername = "localhost";
+// $username = "root";
+// $password = "lx051607";
+// $dbname = "sqli_test";
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "lx051607";
 $dbname = "sqli_test";
-
 // 创建数据库连接
 $conn = new mysqli($servername, $username, $password, $dbname);
 

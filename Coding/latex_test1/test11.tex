@@ -1,0 +1,113 @@
+\documentclass[fontset=windows]{article}
+\usepackage[zihao=-4]{ctex}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\begin{document}
+\title{Note of \LaTeX}  
+\author{Slowist\_Lee}
+\maketitle
+\section{Introduction}
+通篇文章可以分为三个部分：1我想写一篇文档 2.我要开始写一篇文档 3. 我正在写一篇文档。
+\subsection{subsection}
+副标题
+
+\subsubsection{subsubsection}
+副标题的副标题
+\paragraph{Paragraph的作用} "paragraph"的作用只是另起一段并在开头添加了粗体的段标题，后面的文字将会紧跟标题，不会像section一样另起一段。同时可以看到左下角的outline:
+\section{入门}
+
+
+\paragraph{I.换行}方法是加空格之后直接换行【中间需要空行】 
+
+	第一行第一行第一行第一行第一行第一行第一行第一行
+	
+第二行第二行第二行第二行第二行第二行第二行第二行
+\paragraph{II.转义}
+\{显示大括号\}
+
+要注意\verb|\|这个符号的转义有点麻烦:
+\begin{center}
+\verb|\|
+\end{center}
+\paragraph{III.字体}
+
+
+\textbf{黑体} 
+
+ % 字体族设置：通过命令设置，{} 内为参数，即需要设置格式的文本
+ \textrm{Roman Family} 
+
+
+ \textsf{Sans Serif Family}
+
+
+ \texttt{Typewriter Family} \par
+ 
+ % 字体族设置：通过声明设置，声明后的文本全部按照该格式，{} 表示范围
+ {\songti 宋体，通过声明设置} \par
+ {\heiti 黑体，声明后的文本} \par
+ {\fangsong 仿宋，按照该格式} \par
+ {\kaishu 楷书，花括号表示范围} \par
+
+    % 字体形状设置(直立，斜体，伪斜体 ，小型大写)
+   % 字体命令
+   \textup{Upright Shape 直立，}	
+   \textit{Italic Shape 斜体，} \par
+   \textsl{Slanted Shape 伪斜体，}
+   \textsc{Small Caps Shape 小型大写} \par
+   
+   % 字体声明
+   \upshape{直立 Upright Shape，}	
+   \itshape{斜体 Italic Shape，}	\par
+   \slshape{伪斜体 Slanted Shape，}	
+   \scshape{小型大写 Small Caps Shape}
+
+   \slshape{\texttt{ADDING：Typewriter Family} \par\par}	
+   \upshape{恢复直立字体，裂开。}
+
+   
+   {\songti 
+   
+    subsection{1.4 字体大小的设置}
+	
+	字体大小在 \verb|\|documentclass\{article\} 中可以设置为 10pt, 11pt, 12pt。
+	
+	\verb|\|zihao \{〈字号〉\} 命令用于调整字号大小。其中 〈 字号 〉 的有效值共有 16 个，如表 所示。
+	
+	使用 \verb|\|zihao 命令调整字体大小时，英文字号大小会始终和中文字号保持一致。
+ 
+% 字体的大小
+{\tiny tiny: Hello!}\par
+{\scriptsize scriptsize: Hello!}\par
+{\footnotesize footnotesize: Hello!}\par
+{\small small: Hello!}\par
+{\normalsize normalsize: Hello!}\par
+{\large large: Hello!}\par
+{\Large Large: Hello!}\par
+{\LARGE LARGE: Hello!}\par
+{\huge huge: Hello!}\par
+{\Huge Huge: Hello!}\par
+
+% 中文的字号
+\zihao{0} 你好！zihao（0）\par
+\zihao{1} 你好！zihao（1）\par
+\zihao{2} 你好！zihao（2）\par
+\zihao{-2} 你好！zihao（-2）\par
+\zihao{3} 你好！zihao（3）\par
+\zihao{-3} 你好！zihao（-3）\par
+\zihao{4} 你好！zihao（4）\par
+\zihao{-4} 你好！zihao（-4）\par
+\zihao{5} 你好！zihao（5）\par
+\zihao{-5} 你好！zihao（-5）\par
+\zihao{6} 你好！zihao（6）\par
+\zihao{-6} 你好！zihao（-6）\par
+\zihao{7} 你好！zihao（7）\par
+\zihao{8} 你好！zihao（8）\par 
+
+	} \par
+\section{插入图片}
+
+
+\end{document}
+
+

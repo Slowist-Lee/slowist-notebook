@@ -1,0 +1,40 @@
+{
+    "config": {
+        "chainId": "${CHAIN_ID}",
+        "homesteadBlock": 0,
+        "eip150Block": 0,
+        "eip155Block": 0,
+        "eip158Block": 0,
+        "byzantiumBlock": 0,
+        "constantinopleBlock": 0,
+        "petersburgBlock": 0,
+        "istanbulBlock": 0,
+        "muirGlacierBlock": 0,
+        "berlinBlock": 0,
+        "londonBlock": 0,
+        "ShanghaiTime": 0,
+        "clique": {
+            "period": 5,
+            "epoch": 30000
+        }
+    },
+    "nonce": "0x0",
+    "timestamp": "${TIMESTAMP}",
+    "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000${ALLOC_ADDRESS_WITHOUT_0X}0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "gasLimit": "21000",
+    "difficulty": "${DIFFICULTY}",
+    "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coinbase": "0x0000000000000000000000000000000000000000",
+    "alloc": {
+        "0000000000000000000000000000000000000000": {
+            "balance": "0x10000000000000000"
+        },
+        "${ALLOC_ADDRESS_WITHOUT_0X}": {
+            "balance": "0x100000000000000000000000000000000000000000000000000000000000000"
+        }
+    },
+    "number": "0x0",
+    "gasUsed": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "baseFeePerGas": null
+}
